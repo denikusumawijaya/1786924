@@ -697,7 +697,7 @@
             q6: { ans: "35", hint: "6-4=2, 7-4=3." },
             q7: { ans: "hundreds", hint: "5 is in the third position from the right." },
             q8: { ans: "64", hint: "6 tens = 60. 60 + 4 = 64." },
-            q9: { ans: "35", hint: "7-6=1, 9-2=7? Wait, 97-62: 7-2=5, 9-6=3. Answer 35." },
+            q9: { ans: "35", hint: "97-62: 7-2=5, 9-6=3. Answer 35." },
             q10: { ans: "70", hint: "The digit 7 in 72 means 7 tens, which is 70." }
         },
         s2: {
@@ -762,22 +762,41 @@
         }
     };
 
-    // CHECK SECTION
+    // CHECK SECTION (FIXED)
     function checkSection(secId) {
         const data = sectionData[secId];
         for (let qKey in data) {
             const qBox = document.getElementById(qKey);
-            const inputElem = document.getElementById(`ans_${qKey}`);
             const fbElem = document.getElementById(`fb_${qKey}`);
             
             let userAns = "";
-            if (inputElem.tagName === 'SELECT') userAns = inputElem.value;
-            else if (inputElem.type === 'text') userAns = inputElem.value.trim();
-            
+            let isCorrect = false;
             const correctAns = data[qKey].ans;
             const hint = data[qKey].hint;
             
-            const isCorrect = userAns.toLowerCase() === correctAns.toLowerCase();
+            // Deteksi tipe input secara otomatis di dalam kotak soal
+            const textInput = qBox.querySelector('input[type="text"]');
+            const selectInput = qBox.querySelector('select');
+            const checkboxes = qBox.querySelectorAll('input[type="checkbox"]');
+            const radios = qBox.querySelectorAll('input[type="radio"]');
+            
+            if (textInput) {
+                userAns = textInput.value.trim();
+                isCorrect = userAns.toLowerCase() === String(correctAns).toLowerCase();
+            } else if (selectInput) {
+                userAns = selectInput.value;
+                isCorrect = userAns === correctAns;
+            } else if (radios.length > 0) {
+                const checkedRadio = qBox.querySelector('input[type="radio"]:checked');
+                userAns = checkedRadio ? checkedRadio.value : "";
+                isCorrect = userAns === correctAns;
+            } else if (checkboxes.length > 0) {
+                let selected = [];
+                checkboxes.forEach((cb) => { if (cb.checked) selected.push(cb.value); });
+                userAns = selected.sort().join(", ");
+                const userAnsCode = selected.sort().join("");
+                isCorrect = userAnsCode === correctAns;
+            }
             
             qBox.classList.remove('correct', 'incorrect');
             fbElem.classList.add('show');
@@ -789,35 +808,32 @@
             } else {
                 qBox.classList.add('incorrect');
                 fbElem.className = 'feedback show incorrect-fb';
-                fbElem.innerHTML = `<i class="fas fa-times-circle"></i> Incorrect. / Salah. <br><strong>Help / Bantuan:</strong> ${hint} <br><em>Your answer: ${userAns}, Correct: ${correctAns}</em>`;
+                let displayCorrect = correctAns;
+                if (checkboxes.length > 0) {
+                    displayCorrect = correctAns.split('').join(', ');
+                }
+                fbElem.innerHTML = `<i class="fas fa-times-circle"></i> Incorrect. / Salah. <br><strong>Help / Bantuan:</strong> ${hint} <br><em>Your answer: ${userAns || '(blank)'}, Correct: ${displayCorrect}</em>`;
             }
         }
     }
 
-    // RESET SECTION
+    // RESET SECTION (FIXED)
     function resetSection(secId) {
         const data = sectionData[secId];
         for (let qKey in data) {
             const qBox = document.getElementById(qKey);
-            const inputElem = document.getElementById(`ans_${qKey}`);
             const fbElem = document.getElementById(`fb_${qKey}`);
             
-            qBox.classList.remove('correct', 'incorrect');
-            fbElem.classList.remove('show');
-            fbElem.innerHTML = '';
-            
-            if (inputElem.tagName === 'SELECT') inputElem.selectedIndex = 0;
-            else if (inputElem.type === 'text') inputElem.value = '';
-            else if (inputElem.type === 'radio' || inputElem.type === 'checkbox') {
-                // For radio/checkbox in sections 2 & 5 (handled via querySelectorAll)
-                const name = inputElem.id.substring(0, qKey.length + 4); // rough match
-                document.querySelectorAll(`input[name='ans_${qKey}']`).forEach(el => el.checked = false);
+            if(qBox) {
+                qBox.classList.remove('correct', 'incorrect');
+                qBox.querySelectorAll('input[type="text"]').forEach(el => el.value = '');
+                qBox.querySelectorAll('select').forEach(el => el.selectedIndex = 0);
+                qBox.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(el => el.checked = false);
             }
-        }
-        // Specific reset for radio/checkbox groups in s2 and s5
-        const container = document.getElementById(secId === 's2' ? 'section2' : secId === 's5' ? 'section5' : null);
-        if(container) {
-            container.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(el => el.checked = false);
+            if(fbElem) {
+                fbElem.classList.remove('show');
+                fbElem.innerHTML = '';
+            }
         }
     }
 
@@ -965,7 +981,7 @@
             } else {
                 qBox.classList.add('incorrect');
                 fbElem.className = 'feedback show incorrect-fb';
-                fbElem.innerHTML = `<i class="fas fa-times-circle"></i> Incorrect. / Salah.<br><strong>Correct Answer / Jawaban Benar:</strong> ${q.ans}<br><strong>Step / Langkah:</strong> ${q.hint}`;
+                fbElem.innerHTML = `<i class="fas fa-times-circle"></i> Incorrect. / Salah.<br><strong>Correct Answer / Jawaban Benar:</strong> ${Array.isArray(q.ans) ? q.ans.join(', ') : q.ans}<br><strong>Step / Langkah:</strong> ${q.hint}`;
             }
         });
         alert(`Assessment Group ${currentGroup} Score / Skor: ${score}/10`);
@@ -1005,7 +1021,7 @@
             
             if(isCorrect) score++;
             
-            tableRows += `<tr style="border-bottom:1px solid #ccc;"><td style="padding:5px;">${i+1}</td><td style="padding:5px;">${q.q}</td><td style="padding:5px; color:${isCorrect ? 'green' : 'red'}">${userAns}</td><td style="padding:5px;">${q.ans}</td></tr>`;
+            tableRows += `<tr style="border-bottom:1px solid #ccc;"><td style="padding:5px;">${i+1}</td><td style="padding:5px;">${q.q}</td><td style="padding:5px; color:${isCorrect ? 'green' : 'red'}">${userAns}</td><td style="padding:5px;">${Array.isArray(q.ans) ? q.ans.join(', ') : q.ans}</td></tr>`;
         });
 
         const printWindow = window.open('', '_blank');
