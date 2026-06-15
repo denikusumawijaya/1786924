@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subtraction with Borrowing Fluency & Problem Solving</title>
+    <!-- MathJax for Math Equations -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #4361ee; --secondary: #3f37c9; --accent: #4cc9f0; --bg: #f8f9fa; --text: #333; --border: #dee2e6; --success: #4caf50; --error: #e53935; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 0; line-height: 1.6; }
+        .container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 20px; box-sizing: border-box; }
+        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        header h1 { margin: 0; font-size: 1.8rem; } header p { margin: 5px 0 0 0; opacity: 0.9; }
+        .rules-box { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin-bottom: 20px; border-radius: 5px; }
+        .rules-box h3 { margin-top: 0; color: #856404; }
+        .section-card { background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px; overflow: hidden; border: 1px solid var(--border); animation: fadeIn 0.5s ease-in; }
+        .section-header { background: var(--primary); color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .section-header h2 { margin: 0; font-size: 1.3rem; } .timer-badge { background: rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 20px; font-size: 0.9rem; }
+        .section-body { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 20px; }
+        .theory-side { padding-right: 20px; border-right: 1px solid var(--border); }
+        .activity-side { padding-left: 20px; }
+        .bilingual p { margin: 0 0 10px 0; } .bilingual em { color: #6c757d; font-size: 0.9rem; display: block; margin-top: -5px; margin-bottom: 10px; }
+        .question-box { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid var(--border); position: relative; }
+        .question-box.correct { border-color: var(--success); background: #e8f5e9; } .question-box.incorrect { border-color: var(--error); background: #ffebee; }
+        .feedback { font-size: 0.85rem; margin-top: 10px; padding: 8px; border-radius: 4px; display: none; }
+        .feedback.show { display: block; } .feedback.correct-fb { background: #c8e6c9; color: #2e7d32; } .feedback.incorrect-fb { background: #ffcdd2; color: #c62828; }
+        .btn { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.2s; margin-right: 10px; }
+        .btn-submit { background: var(--primary); color: white; } .btn-reset { background: #6c757d; color: white; }
+        .btn:hover { opacity: 0.8; transform: translateY(-1px); }
+        input[type="text"], select { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid var(--border); border-radius: 4px; box-sizing: border-box; }
+        .radio-group label { display: block; margin: 5px 0; cursor: pointer; }
+        .illust-table { width: 100%; border-collapse: collapse; margin: 10px 0; } .illust-table th, .illust-table td { border: 1px solid var(--border); padding: 8px; text-align: center; }
+        .illust-table th { background: var(--accent); color: white; }
+        .icon-bullet { list-style: none; padding: 0; } .icon-bullet li { padding-left: 25px; position: relative; margin-bottom: 10px; } .icon-bullet li i { position: absolute; left: 0; top: 4px; color: var(--primary); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .assessment-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .group-selector button { padding: 10px 15px; margin: 5px; border: 1px solid var(--border); background: white; cursor: pointer; border-radius: 5px; font-weight: bold; }
+        .group-selector button.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .drag-container { display: flex; gap: 10px; flex-wrap: wrap; } .draggable { background: var(--accent); padding: 5px 10px; border-radius: 4px; cursor: grab; color: white; }
+        .dropzone { border: 2px dashed var(--border); min-height: 40px; padding: 10px; border-radius: 4px; }
+        @media print { .no-print { display: none; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1><i class="fas fa-rocket"></i> Subtraction with Borrowing Fluency & Problem Solving</h1>
+        <p><strong>Curriculum:</strong> Cambridge | <strong>Topic:</strong> Subtraction with Borrowing | <strong>Tutor:</strong> Deni</p>
+    </header>
+
+    <div class="rules-box">
+        <h3><i class="fas fa-gavel"></i> Class Rules / Aturan Kelas</h3>
+        <ul class="icon-bullet">
+            <li><i class="fas fa-comments"></i> Speak in turns and listen respectfully. <em>Berbicara secara bergantian dan dengarkan dengan hormat.</em></li>
+            <li><i class="fas fa-hand-paper"></i> Ask for permission if you need to leave the Zoom meeting (e.g., toilet or drink). <em>Minta izin ketika ingin meninggalkan zoom (misal: izin ke toilet atau izin minum).</em></li>
+        </ul>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="section-card" id="section1">
+        <div class="section-header">
+            <h2><i class="fas fa-brain"></i> 1. Spiral Review Warm-up</h2>
+            <span class="timer-badge"><i class="fas fa-clock"></i> 00:00 - 00:10</span>
+        </div>
+        <div class="section-body">
+            <div class="theory-side bilingual">
+                <p>Subtraction is taking one number away from another to find the difference.</p><em>Pengurangan adalah mengambil satu angka dari angka lain untuk menemukan selisihnya.</em>
+                <p>In mathematics, we write this as an equation like \( 45 - 12 = 33 \).</p><em>Dalam matematika, kita menulis ini sebagai persamaan seperti \( 45 - 12 = 33 \).</em>
+                <p>When the top digit is larger than the bottom digit, we can subtract directly without borrowing.</p><em>Ketika digit atas lebih besar dari digit bawah, kita bisa mengurangi secara langsung tanpa meminjam.</em>
+                <p>This process is called simple subtraction and it forms the foundation of our math journey.</p><em>Proses ini disebut pengurangan sederhana dan ini membentuk fondasi perjalanan matematika kita.</em>
+                <p>Let us review these basic skills to warm up our brains for today's space mission.</p><em>Mari kita tinjau keterampilan dasar ini untuk menghangatkan otak kita untuk misi luar angkasa hari ini.</em>
+                
+                <table class="illust-table" style="margin-top:15px;">
+                    <tr><th>Place Value / Nilai Tempat</th><th>Example / Contoh</th></tr>
+                    <tr><td>Hundreds / Ratusan</td><td>1 in 124</td></tr>
+                    <tr><td>Tens / Puluhan</td><td>2 in 124</td></tr>
+                    <tr><td>Ones / Satuan</td><td>4 in 124</td></tr>
+                </table>
+
+                <p>Place value tells us the value of a digit based on its position in the number.</p><em>Nilai tempat memberi tahu kita nilai sebuah digit berdasarkan posisinya di dalam angka.</em>
+                <p>For example, in the number 124, the digit 2 is in the tens place.</p><em>Misalnya, pada angka 124, digit 2 berada di tempat puluhan.</em>
+                <p>That means its actual value is 20, not just the number 2.</p><em>Itu berarti nilai sebenarnya adalah 20, bukan hanya angka 2.</em>
+                <p>Understanding place value is crucial before we learn how to borrow across columns.</p><em>Memahami nilai tempat sangat penting sebelum kita belajar cara meminjam antar kolom.</em>
+                <p>Base-ten blocks like rods and units help us see this relationship clearly.</p><em>Balok basis-sepuluh seperti batang dan unit membantu kita melihat hubungan ini dengan jelas.</em>
+            </div>
+            <div class="activity-side">
+                <h3><i class="fas fa-pencil-alt"></i> Activities</h3>
+                <div class="question-box" id="s1q1">
+                    <label>1. \( 45 - 12 = \) ?</label>
+                    <input type="text" id="ans_s1q1" placeholder="Type answer...">
+                    <div class="feedback" id="fb_s1q1"></div>
+                </div>
+                <div class="question-box" id="s1q2">
+                    <label>2. \( 88 - 35 = \) ?</label>
+                    <input type="text" id="ans_s1q2" placeholder="Type answer...">
+                    <div class="feedback" id="fb_s1q2"></div>
+                </div>
+                <div class="question-box" id="s1q3">
+                    <label>3. In the number 124, which digit is in the tens place?</label>
+                    <input type="text" id="ans_s1q3" placeholder="Type digit...">
+                    <div class="feedback" id="fb_s1q3"></div>
+                </div>
+                <div class="question-box" id="s1q4">
+                    <label>4. If you have 3 tens and 2 ones, what number is it?</label>
+                    <input type="text" id="ans_s1q4" placeholder="Type number...">
+                    <div class="feedback" id="fb_s1q4"></div>
+                </div>
+                <div class="question-box" id="s1q5">
+                    <label>5. \( 59 - 24 = \) ?</label>
+                    <input type="text" id="ans_s1q5" placeholder="Type answer...">
+                    <div class="feedback" id="fb_s1q5"></div>
+                </div>
+                <div class="question-box" id="s1q6">
+                    <label>6. \( 76 - 41 = \) ?</label>
+                    <input type="text" id="ans_s1q6" placeholder="Type answer...">
+                    <div class="feedback" id="fb_s1q6"></div>
+                </div>
+                <div class="question-box" id="s1q7">
+                    <label>7. In 532, the digit 5 is in the ______ place.</label>
+                    <input type="text" id="ans_s1q7" placeholder="Type place value...">
+                    <div class="feedback" id="fb_s1q7"></div>
+                </div>
+                <div class="question-box" id="s1q8">
+                    <label>8. 6 tens and 4 ones is equal to \(\_\_\_\_ \).</label>
+                    <input type="text" id="ans_s1q8" placeholder="Type number...">
+                    <div class="feedback" id="fb_s1q8"></div>
+                </div>
+                <div class="question-box" id="s1q9">
+                    <label>9. \( 97 - 62 = \) ?</label>
+                    <input type="text" id="ans_s1q9" placeholder="Type answer...">
+                    <div class="feedback" id="fb_s1q9"></div>
+                </div>
+                <div class="question-box" id="s1q10">
+                    <label>10. What is the value of the digit 7 in the number 72?</label>
+                    <input type="text" id="ans_s1q10" placeholder="Type value (e.g., 70)">
+                    <div class="feedback" id="fb_s1q10"></div>
+                </div>
+                <button class="btn btn-submit" onclick="checkSection('s1')"><i class="fas fa-check"></i> Submit</button>
+                <button class="btn btn-reset" onclick="resetSection('s1')"><i class="fas fa-redo"></i> Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="section-card" id="section2">
+        <div class="section-header">
+            <h2><i class="fas fa-globe-americas"></i> 2. Introduction & Real-World Connection</h2>
+            <span class="timer-badge"><i class="fas fa-clock"></i> 00:10 - 00:15</span>
+        </div>
+        <div class="section-body">
+            <div class="theory-side bilingual">
+                <p>Imagine you are a Space Commander fueling a rocket for a long journey.</p><em>Bayangkan kamu adalah Komandan Luar Angkasa yang mengisi bahan bakar roket untuk perjalanan panjang.</em>
+                <p>You need 52 liters of fuel, but you only have 38 liters in your tank right now.</p><em>Kamu membutuhkan 52 liter bahan bakar, tetapi kamu hanya memiliki 38 liter di tangkimu sekarang.</em>
+                <p>To find out how much more fuel you need, you must subtract 38 from 52.</p><em>Untuk mengetahui berapa banyak bahan bakar tambahan yang kamu butuhkan, kamu harus mengurangkan 38 dari 52.</em>
+                <p>But look closely at the ones column: 2 is smaller than 8, so we cannot take 8 away from 2 directly.</p><em>Tetapi perhatikan kolom satuan: 2 lebih kecil dari 8, jadi kita tidak bisa mengambil 8 dari 2 secara langsung.</em>
+                <p>This is exactly where we use our "Space Borrowing" power to solve the problem!</p><em>Inilah tepatnya di mana kita menggunakan kekuatan "Meminjam Antariksa" kita untuk menyelesaikan masalah!</em>
+
+                <p>Subtraction is not just about numbers; it helps us solve real-world problems like shopping or measuring.</p><em>Pengurangan bukan hanya tentang angka; ini membantu kita menyelesaikan masalah dunia nyata seperti berbelanja atau mengukur.</em>
+                <p>When the top digit is smaller than the bottom digit, we must borrow from the next place value.</p><em>Ketika digit atas lebih kecil dari digit bawah, kita harus meminjam dari nilai tempat berikutnya.</em>
+                <p>Borrowing means taking one "Ten" and breaking it into ten "Ones" to make the top number larger.</p><em>Meminjam berarti mengambil satu "Puluhan" dan memecahnya menjadi sepuluh "Satuan" untuk membuat angka atas lebih besar.</em>
+                <p>This concept ensures that we never run out of units when subtracting in real life scenarios.</p><em>Konsep ini memastikan bahwa kita tidak pernah kehabian satuan saat mengurangi dalam skenario kehidupan nyata.</em>
+                <p>By understanding why we borrow, math becomes a logical tool rather than just memorizing steps.</p><em>Dengan memahami mengapa kita meminjam, matematika menjadi alat logis daripada sekadar menghafal langkah.</em>
+                
+                <div style="text-align:center; margin-top:15px; font-size: 3em; color: var(--primary);"><i class="fas fa-space-shuttle"></i></div>
+            </div>
+            <div class="activity-side">
+                <h3><i class="fas fa-pencil-alt"></i> Activities</h3>
+                <!-- Questions 1-10 using Radio Buttons -->
+                <div class="question-box" id="s2q1">
+                    <label>1. You need 52 liters of fuel but have 38. Can you subtract 8 from 2 directly?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="ans_s2q1" value="Yes"> Yes</label>
+                        <label><input type="radio" name="ans_s2q1" value="No"> No</label>
+                    </div>
+                    <div class="feedback" id="fb_s2q1"></div>
+                </div>
+                <div class="question-box" id="s2q2">
+                    <label>2. If you cannot subtract directly, what should you do?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="ans_s2q2" value="Give up"> Give up</label>
+                        <label><input type="radio" name="ans_s2q2" value="Borrow"> Borrow</label>
+                    </div>
+                    <div class="feedback" id="fb_s2q2"></div>
+                </div>
+                <div class="question-box" id="s2q3">
+                    <label>3. Where do we borrow from in the number 52?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="ans_s2q3" value="Ones"> Ones place</label>
+                        <label><input type="radio" name="ans_s2q3" value="Tens"> Tens place</label>
+                    </div>
+                    <div class="feedback" id="fb_s2q3"></div>
+                </div>
+                <div class="question-box" id="s2q4">
+                    <label>4. How many ones does one "Ten" rod equal?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="ans_s2q4" value="1"> 1</label>
+                        <label><input type="radio" name="ans_s2q4" value="10"> 10</label>
+                    </div>
+                    <div class="feedback" id="fb_s2q4"></div>
+                </div>
+                <div class="question-box" id="s2q5">
+                    <label>5. In the problem \( 45 - 29 \), do we need to borrow in the ones column?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="ans_s2q5" value="Yes"> Yes</label>
+                        <label><input type="radio" name="ans_s2q5" value="No"> No</label>
+                    </div>
+                    <div class="feedback" id="fb_s2q5"></div>
+                </div>
+                <div class="question-box" id="s2q6">
+                    <label>6. In \( 68 - 33 \), do we need to borrow?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="ans_s2q6" value="Yes"> Yes</label>
+                        <label><input type="radio" name="ans_s2q6" value="No"> No</label>
+                    </div>
+                    <div class="feedback" id="fb_s2q6"></div>
+                </div>
+                <div class="question-box" id="s2q7">
+                    <label>7. What does borrowing mean in subtraction?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="ans_s2q7" value="Adding tens"> Adding a ten</label>
+                        <label><input type="radio" name="ans_s2q7" value="Exchanging tens for ones"> Exchanging tens for ones</label>
+                    </div>
+                    <div class="feedback" id="fb_s2q7"></div>
+                </div>
+                <div class="question-box" id="s2q8">
+                    <label>8. If we borrow 1 ten in \( 52 - 38 \), the 2 becomes...</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="ans_s2q8" value="12"> 12</label>
+                        <label><input type="radio" name="ans_s2q8" value="3"> 3</label>
+                    </div>
+                    <div class="feedback" id="fb_s2q8"></div>
+                </div>
+                <div class="question-box" id="s2q9">
+                    <label>9. Real-world subtraction helps us find out what?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="ans_s2q9" value="The total"> The total</label>
+                        <label><input type="radio" name="ans_s2q9" value="The difference"> The difference</label>
+                    </div>
+                    <div class="feedback" id="fb_s2q9"></div>
+                </div>
+                <div class="question-box" id="s2q10">
+                    <label>10. If you have 40 apples and give away 25, do you need to borrow?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="ans_s2q10" value="Yes"> Yes</label>
+                        <label><input type="radio" name="ans_s2q10" value="No"> No</label>
+                    </div>
+                    <div class="feedback" id="fb_s2q10"></div>
+                </div>
+                <button class="btn btn-submit" onclick="checkSection('s2')"><i class="fas fa-check"></i> Submit</button>
+                <button class="btn btn-reset" onclick="resetSection('s2')"><i class="fas fa-redo"></i> Reset</button>
+            </div>
+        </div>
+    </div>
+    <!-- SECTION 3 -->
+    <div class="section-card" id="section3">
+        <div class="section-header">
+            <h2><i class="fas fa-history"></i> 3. Review of Prior Knowledge</h2>
+            <span class="timer-badge"><i class="fas fa-clock"></i> 00:15 - 00:20</span>
+        </div>
+        <div class="section-body">
+            <div class="theory-side bilingual">
+                <p>Let us remember our place value rules to understand borrowing better.</p><em>Mari kita ingat aturan nilai tempat kita untuk memahami peminjaman dengan lebih baik.</em>
+                <p>One "Ten" is exactly the same as ten "Ones" in the base-ten system.</p><em>Satu "Puluhan" sama persis dengan sepuluh "Satuan" dalam sistem basis-sepuluh.</em>
+                <p>If we have a Ten rod and we "break" it, it turns into 10 little unit cubes.</p><em>Jika kita memiliki batang Puluhan dan kita "memecahkannya", itu berubah menjadi 10 kubus unit kecil.</em>
+                <p>This exchange is the exact mechanism we use when we regroup or borrow in subtraction.</p><em>Pertukaran ini adalah mekanisme tepat yang kita gunakan saat kita mengelompokkan ulang atau meminjam dalam pengurangan.</em>
+                <p>Without this fundamental knowledge, borrowing would just seem like magic!</p><em>Tanpa pengetahuan mendasar ini, meminjam hanya akan terlihat seperti sulap!</em>
+
+                <p>Think about the number 40, which is made of 4 tens and 0 ones.</p><em>Pikirkan angka 40, yang terdiri dari 4 puluhan dan 0 satuan.</em>
+                <p>If we need to subtract some ones, we have a problem because there are zero ones.</p><em>Jika kita perlu mengurangi beberapa satuan, kita memiliki masalah karena ada nol satuan.</em>
+                <p>We must take one of the tens, leaving 3 tens, and break it into 10 ones.</p><em>Kita harus mengambil satu puluhan, menyisakan 3 puluhan, dan memecahnya menjadi 10 satuan.</em>
+                <p>Now we have 3 tens and 10 ones, which still equals 40, but allows us to subtract.</p><em>Sekarang kita memiliki 3 puluhan dan 10 satuan, yang masih sama dengan 40, tetapi memungkinkan kita untuk mengurangi.</em>
+                <p>This flexibility in representing numbers is the key to all advanced subtraction.</p><em>Fleksibilitas dalam merepresentasikan angka ini adalah kunci untuk semua pengurangan tingkat lanjut.</em>
+                <div style="text-align:center; margin-top:15px; font-size: 3em; color: var(--accent);"><i class="fas fa-cubes"></i></div>
+            </div>
+            <div class="activity-side">
+                <h3><i class="fas fa-pencil-alt"></i> Activities (Dropdowns)</h3>
+                <div class="question-box" id="s3q1">
+                    <label>1. One Ten is equal to \(\_\_\_\_\) Ones.</label>
+                    <select id="ans_s3q1"><option value="">Select...</option><option value="1">1</option><option value="10">10</option><option value="100">100</option></select>
+                    <div class="feedback" id="fb_s3q1"></div>
+                </div>
+                <div class="question-box" id="s3q2">
+                    <label>2. If I break a "Ten" rod, I get \(\_\_\_\_\) little cubes.</label>
+                    <select id="ans_s3q2"><option value="">Select...</option><option value="1">1</option><option value="10">10</option><option value="5">5</option></select>
+                    <div class="feedback" id="fb_s3q2"></div>
+                </div>
+                <div class="question-box" id="s3q3">
+                    <label>3. In the number 40, how many tens are there?</label>
+                    <select id="ans_s3q3"><option value="">Select...</option><option value="0">0</option><option value="4">4</option><option value="40">40</option></select>
+                    <div class="feedback" id="fb_s3q3"></div>
+                </div>
+                <div class="question-box" id="s3q4">
+                    <label>4. If you have 4 tens and break one, how many tens are left?</label>
+                    <select id="ans_s3q4"><option value="">Select...</option><option value="3">3</option><option value="2">2</option><option value="4">4</option></select>
+                    <div class="feedback" id="fb_s3q4"></div>
+                </div>
+                <div class="question-box" id="s3q5">
+                    <label>5. If you break one ten from 40, how many ones do you get?</label>
+                    <select id="ans_s3q5"><option value="">Select...</option><option value="10">10</option><option value="1">1</option><option value="0">0</option></select>
+                    <div class="feedback" id="fb_s3q5"></div>
+                </div>
+                <div class="question-box" id="s3q6">
+                    <label>6. 3 tens and 10 ones equals \(\_\_\_\_\).</label>
+                    <select id="ans_s3q6"><option value="">Select...</option><option value="40">40</option><option value="13">13</option><option value="30">30</option></select>
+                    <div class="feedback" id="fb_s3q6"></div>
+                </div>
+                <div class="question-box" id="s3q7">
+                    <label>7. What place value is immediately to the left of the Ones?</label>
+                    <select id="ans_s3q7"><option value="">Select...</option><option value="Hundreds">Hundreds</option><option value="Tens">Tens</option><option value="Thousands">Thousands</option></select>
+                    <div class="feedback" id="fb_s3q7"></div>
+                </div>
+                <div class="question-box" id="s3q8">
+                    <label>8. Breaking a Hundred gives you \(\_\_\_\_\) Tens.</label>
+                    <select id="ans_s3q8"><option value="">Select...</option><option value="10">10</option><option value="100">100</option><option value="1">1</option></select>
+                    <div class="feedback" id="fb_s3q8"></div>
+                </div>
+                <div class="question-box" id="s3q9">
+                    <label>9. When we borrow, the number value stays \(\_\_\_\_\).</label>
+                    <select id="ans_s3q9"><option value="">Select...</option><option value="The same">The same</option><option value="Smaller">Smaller</option><option value="Bigger">Bigger</option></select>
+                    <div class="feedback" id="fb_s3q9"></div>
+                </div>
+                <div class="question-box" id="s3q10">
+                    <label>10. 1 Hundred + 0 Tens + 10 Ones = \(\_\_\_\_\).</label>
+                    <select id="ans_s3q10"><option value="">Select...</option><option value="110">110</option><option value="101">101</option><option value="100">100</option></select>
+                    <div class="feedback" id="fb_s3q10"></div>
+                </div>
+                <button class="btn btn-submit" onclick="checkSection('s3')"><i class="fas fa-check"></i> Submit</button>
+                <button class="btn btn-reset" onclick="resetSection('s3')"><i class="fas fa-redo"></i> Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="section-card" id="section4">
+        <div class="section-header">
+            <h2><i class="fas fa-question-circle"></i> 4. Problem Introduction</h2>
+            <span class="timer-badge"><i class="fas fa-clock"></i> 00:20 - 00:30</span>
+        </div>
+        <div class="section-body">
+            <div class="theory-side bilingual">
+                <p>Now, let us look at a 3-digit problem: \( 324 - 156 \).</p><em>Sekarang, mari kita lihat soal 3 digit: \( 324 - 156 \).</em>
+                <p>We always start subtracting from the ones column on the right side.</p><em>Kita selalu mulai mengurangi dari kolom satuan di sisi kanan.</em>
+                <p>We try to do 4 minus 6, but 4 is smaller than 6, so we must borrow from the tens.</p><em>Kita mencoba melakukan 4 kurang 6, tapi 4 lebih kecil dari 6, jadi kita harus meminjam dari puluhan.</em>
+                <p>We borrow 1 ten, so the 4 becomes 14, and \( 14 - 6 = 8 \).</p><em>Kita meminjam 1 puluhan, jadi 4 menjadi 14, dan \( 14 - 6 = 8 \).</em>
+                <p>Now we move to the tens column and realize a chain reaction has started!</p><em>Sekarang kita berpindah ke kolom puluhan dan menyadari reaksi berantai telah dimulai!</em>
+
+                <p>Because we borrowed from the tens, the 2 in the tens place became a 1.</p><em>Karena kita meminjam dari puluhan, angka 2 di tempat puluhan menjadi 1.</em>
+                <p>Now we must subtract 5 from 1, which is impossible without borrowing again.</p><em>Sekarang kita harus mengurangi 5 dari 1, yang mustahil tanpa meminjam lagi.</em>
+                <p>We must borrow from the hundreds place, turning the 1 into an 11.</p><em>Kita harus meminjam dari tempat ratusan, mengubah 1 menjadi 11.</em>
+                <p>\( 11 - 5 = 6 \), and the hundreds column decreases from 3 to 2.</p><em>\( 11 - 5 = 6 \), dan kolom ratusan berkurang dari 3 menjadi 2.</em>
+                <p>Finally, \( 2 - 1 = 1 \), giving us the final answer of 168.</p><em>Akhirnya, \( 2 - 1 = 1 \), memberi kita jawaban akhir 168.</em>
+                <table class="illust-table" style="margin-top:15px;">
+                    <tr><th>Step / Langkah</th><th>Action / Tindakan</th></tr>
+                    <tr><td>1</td><td>Check Ones: 4 < 6 (Borrow!)</td></tr>
+                    <tr><td>2</td><td>Check Tens: 1 < 5 (Borrow!)</td></tr>
+                    <tr><td>3</td><td>Check Hundreds: 2 > 1 (Safe!)</td></tr>
+                </table>
+            </div>
+            <div class="activity-side">
+                <h3><i class="fas fa-pencil-alt"></i> Activities (Matching)</h3>
+                <p style="font-size:0.9em; color:#666;">Match the step with the result. Type the letter (A, B, or C) in the box.</p>
+                
+                <div class="question-box" id="s4q1">
+                    <label>1. In \( 324 - 156 \), what does the 4 become after borrowing?</label>
+                    <input type="text" id="ans_s4q1" placeholder="Type A, B, or C">
+                    <div style="font-size:0.85em; margin-top:5px; color:#555;">A) 14 &nbsp; B) 5 &nbsp; C) 10</div>
+                    <div class="feedback" id="fb_s4q1"></div>
+                </div>
+                <div class="question-box" id="s4q2">
+                    <label>2. In \( 324 - 156 \), what does the 2 become after the ones borrow?</label>
+                    <input type="text" id="ans_s4q2" placeholder="Type A, B, or C">
+                    <div style="font-size:0.85em; margin-top:5px; color:#555;">A) 12 &nbsp; B) 1 &nbsp; C) 3</div>
+                    <div class="feedback" id="fb_s4q2"></div>
+                </div>
+                <div class="question-box" id="s4q3">
+                    <label>3. When we borrow from the hundreds, the 1 in the tens becomes...?</label>
+                    <input type="text" id="ans_s4q3" placeholder="Type A, B, or C">
+                    <div style="font-size:0.85em; margin-top:5px; color:#555;">A) 11 &nbsp; B) 0 &nbsp; C) 21</div>
+                    <div class="feedback" id="fb_s4q3"></div>
+                </div>
+                <div class="question-box" id="s4q4">
+                    <label>4. What is the result of \( 14 - 6 \) in the ones column?</label>
+                    <input type="text" id="ans_s4q4" placeholder="Type A, B, or C">
+                    <div style="font-size:0.85em; margin-top:5px; color:#555;">A) 6 &nbsp; B) 8 &nbsp; C) 4</div>
+                    <div class="feedback" id="fb_s4q4"></div>
+                </div>
+                <div class="question-box" id="s4q5">
+                    <label>5. What is the result of \( 11 - 5 \) in the tens column?</label>
+                    <input type="text" id="ans_s4q5" placeholder="Type A, B, or C">
+                    <div style="font-size:0.85em; margin-top:5px; color:#555;">A) 5 &nbsp; B) 6 &nbsp; C) 7</div>
+                    <div class="feedback" id="fb_s4q5"></div>
+                </div>
+                <div class="question-box" id="s4q6">
+                    <label>6. In the hundreds column, \( 2 - 1 = \) ?</label>
+                    <input type="text" id="ans_s4q6" placeholder="Type A, B, or C">
+                    <div style="font-size:0.85em; margin-top:5px; color:#555;">A) 2 &nbsp; B) 3 &nbsp; C) 1</div>
+                    <div class="feedback" id="fb_s4q6"></div>
+                </div>
+                <div class="question-box" id="s4q7">
+                    <label>7. The chain reaction of borrowing happens when...</label>
+                    <input type="text" id="ans_s4q7" placeholder="Type A, B, or C">
+                    <div style="font-size:0.85em; margin-top:5px; color:#555;">A) Top digit > Bottom digit &nbsp; B) Top digit = 0 &nbsp; C) Top digit < Bottom digit</div>
+                    <div class="feedback" id="fb_s4q7"></div>
+                </div>
+                <div class="question-box" id="s4q8">
+                    <label>8. In \( 200 - 55 \), how many columns must we borrow from?</label>
+                    <input type="text" id="ans_s4q8" placeholder="Type A, B, or C">
+                    <div style="font-size:0.85em; margin-top:5px; color:#555;">A) One &nbsp; B) Two &nbsp; C) Three</div>
+                    <div class="feedback" id="fb_s4q8"></div>
+                </div>
+                <div class="question-box" id="s4q9">
+                    <label>9. What happens to the 3 in \( 324 \) after we borrow from it?</label>
+                    <input type="text" id="ans_s4q9" placeholder="Type A, B, or C">
+                    <div style="font-size:0.85em; margin-top:5px; color:#555;">A) Becomes 2 &nbsp; B) Becomes 4 &nbsp; C) Becomes 1</div>
+                    <div class="feedback" id="fb_s4q9"></div>
+                </div>
+                <div class="question-box" id="s4q10">
+                    <label>10. The final answer to \( 324 - 156 \) is...?</label>
+                    <input type="text" id="ans_s4q10" placeholder="Type A, B, or C">
+                    <div style="font-size:0.85em; margin-top:5px; color:#555;">A) 168 &nbsp; B) 178 &nbsp; C) 158</div>
+                    <div class="feedback" id="fb_s4q10"></div>
+                </div>
+                <button class="btn btn-submit" onclick="checkSection('s4')"><i class="fas fa-check"></i> Submit</button>
+                <button class="btn btn-reset" onclick="resetSection('s4')"><i class="fas fa-redo"></i> Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 5 -->
+    <div class="section-card" id="section5">
+        <div class="section-header">
+            <h2><i class="fas fa-hands-helping"></i> 5. Guided Practice</h2>
+            <span class="timer-badge"><i class="fas fa-clock"></i> 00:30 - 00:45</span>
+        </div>
+        <div class="section-body">
+            <div class="theory-side bilingual">
+                <p>Your turn to lead, Commander! Let us set up our vertical subtraction properly.</p><em>Saatnya kamu memimpin, Komandan! Mari kita menyiapkan pengurangan vertikal kita dengan benar.</em>
+                <p>Always remember the golden rule: Top number minus Bottom number.</p><em>Selalu ingat aturan emas: Angka atas dikurangi Angka bawah.</em>
+                <p>When setting up \( 82 - 45 \), make sure the ones and tens line up perfectly.</p><em>Saat menyiapkan \( 82 - 45 \), pastikan satuan dan puluhan sejajar dengan sempurna.</em>
+                <p>Since 2 is less than 5, we borrow from the 8, making it 7, and the 2 becomes 12.</p><em>Karena 2 kurang dari 5, kita meminjam dari 8, menjadikannya 7, dan 2 menjadi 12.</em>
+                <p>Practicing this setup repeatedly will build your math fluency.</p><em>Melatih pengaturan ini secara berulang akan membangun kelancaran matematikamu.</p>
+
+                <p>Subtracting from zeros can feel tricky, but the borrowing rule remains the same.</p><em>Mengurangi dari nol bisa terasa rumit, tetapi aturan meminjam tetap sama.</em>
+                <p>Look at \( 400 - 123 \). We cannot subtract 3 from 0 in the ones column.</p><em>Lihat \( 400 - 123 \). Kita tidak bisa mengurangi 3 dari 0 di kolom satuan.</em>
+                <p>We try to borrow from the tens, but it is also 0, so we must go to the hundreds.</p><em>Kita mencoba meminjam dari puluhan, tetapi itu juga 0, jadi kita harus pergi ke ratusan.</em>
+                <p>We borrow 1 hundred, giving the tens 10, then borrow 1 ten, giving the ones 10.</p><em>Kita meminjam 1 ratusan, memberi puluhan 10, lalu meminjam 1 puluhan, memberi satuan 10.</em>
+                <p>With practice, even zero won't stop your subtraction mission!</p><em>Dengan latihan, bahkan nol tidak akan menghentikan misi penguranganmu!</p>
+                <div style="text-align:center; margin-top:15px; font-size: 3em; color: var(--secondary);"><i class="fas fa-chalkboard-teacher"></i></div>
+            </div>
+            <div class="activity-side">
+                <h3><i class="fas fa-pencil-alt"></i> Activities (Checkboxes - Choose all correct)</h3>
+                <div class="question-box" id="s5q1">
+                    <label>1. Which steps are correct for \( 82 - 45 \)? (Select 2)</label>
+                    <div class="radio-group">
+                        <label><input type="checkbox" id="s5q1_a" value="A"> Borrow from 8</label>
+                        <label><input type="checkbox" id="s5q1_b" value="B"> 2 becomes 12</label>
+                        <label><input type="checkbox" id="s5q1_c" value="C"> 8 becomes 9</label>
+                    </div>
+                    <div class="feedback" id="fb_s5q1"></div>
+                </div>
+                <div class="question-box" id="s5q2">
+                    <label>2. Which statements are true about \( 153 - 77 \)? (Select 2)</label>
+                    <div class="radio-group">
+                        <label><input type="checkbox" id="s5q2_a" value="A"> Borrow in ones column</label>
+                        <label><input type="checkbox" id="s5q2_b" value="B"> Borrow in tens column</label>
+                        <label><input type="checkbox" id="s5q2_c" value="C"> 5 becomes 4</label>
+                    </div>
+                    <div class="feedback" id="fb_s5q2"></div>
+                </div>
+                <div class="question-box" id="s5q3">
+                    <label>3. For \( 400 - 123 \), where do we borrow from first? (Select 2 real steps)</label>
+                    <div class="radio-group">
+                        <label><input type="checkbox" id="s5q3_a" value="A"> Tens to Ones</label>
+                        <label><input type="checkbox" id="s5q3_b" value="B"> Hundreds to Tens</label>
+                        <label><input type="checkbox" id="s5q3_c" value="C"> Skip borrowing</label>
+                    </div>
+                    <div class="feedback" id="fb_s5q3"></div>
+                </div>
+                <div class="question-box" id="s5q4">
+                    <label>4. What changes happen in \( 400 - 123 \) ones column? (Select 2)</label>
+                    <div class="radio-group">
+                        <label><input type="checkbox" id="s5q4_a" value="A"> 0 becomes 10</label>
+                        <label><input type="checkbox" id="s5q4_b" value="B"> 0 becomes 9</label>
+                        <label><input type="checkbox" id="s5q4_c" value="C"> Tens drop to 9</label>
+                    </div>
+                    <div class="feedback" id="fb_s5q4"></div>
+                </div>
+                <div class="question-box" id="s5q5">
+                    <label>5. In \( 91 - 46 \), what are the results after borrowing? (Select 2)</label>
+                    <div class="radio-group">
+                        <label><input type="checkbox" id="s5q5_a" value="A"> 1 becomes 11</label>
+                        <label><input type="checkbox" id="s5q5_b" value="B"> 9 becomes 8</label>
+                        <label><input type="checkbox" id="s5q5_c" value="C"> 4 becomes 14</label>
+                    </div>
+                    <div class="feedback" id="fb_s5q5"></div>
+                </div>
+                <div class="question-box" id="s5q6">
+                    <label>6. Which subtraction setups are vertically correct? (Select 2)</label>
+                    <div class="radio-group">
+                        <label><input type="checkbox" id="s5q6_a" value="A"> Top: 64, Bottom: 28</label>
+                        <label><input type="checkbox" id="s5q6_b" value="B"> Top: 28, Bottom: 64</label>
+                        <label><input type="checkbox" id="s5q6_c" value="C"> Tens over Tens</label>
+                    </div>
+                    <div class="feedback" id="fb_s5q6"></div>
+                </div>
+                <div class="question-box" id="s5q7">
+                    <label>7. Why do we cross out the 8 in \( 82 - 45 \)? (Select 2)</label>
+                    <div class="radio-group">
+                        <label><input type="checkbox" id="s5q7_a" value="A"> To reduce it by 1</label>
+                        <label><input type="checkbox" id="s5q7_b" value="B"> Because we gave a ten to ones</label>
+                        <label><input type="checkbox" id="s5q7_c" value="C"> It's a mistake</label>
+                    </div>
+                    <div class="feedback" id="fb_s5q7"></div>
+                </div>
+                <div class="question-box" id="s5q8">
+                    <label>8. In \( 152 - 37 \), which columns require borrowing? (Select 1)</label>
+                    <div class="radio-group">
+                        <label><input type="checkbox" id="s5q8_a" value="A"> Ones only</label>
+                        <label><input type="checkbox" id="s5q8_b" value="B"> Tens only</label>
+                        <label><input type="checkbox" id="s5q8_c" value="C"> Both</label>
+                    </div>
+                    <div class="feedback" id="fb_s5q8"></div>
+                </div>
+                <div class="question-box" id="s5q9">
+                    <label>9. Solve \( 82 - 45 \). Which math sentences are part of it? (Select 2)</label>
+                    <div class="radio-group">
+                        <label><input type="checkbox" id="s5q9_a" value="A"> 12 - 5 = 7</label>
+                        <label><input type="checkbox" id="s5q9_b" value="B"> 7 - 4 = 3</label>
+                        <label><input type="checkbox" id="s5q9_c" value="C"> 8 - 4 = 4</label>
+                    </div>
+                    <div class="feedback" id="fb_s5q9"></div>
+                </div>
+                <div class="question-box" id="s5q10">
+                    <label>10. Solve \( 400 - 123 \). What are the digit differences? (Select 2)</label>
+                    <div class="radio-group">
+                        <label><input type="checkbox" id="s5q10_a" value="A"> Ones: 10 - 3 = 7</label>
+                        <label><input type="checkbox" id="s5q10_b" value="B"> Tens: 9 - 2 = 7</label>
+                        <label><input type="checkbox" id="s5q10_c" value="C"> Hundreds: 4 - 1 = 3</label>
+                    </div>
+                    <div class="feedback" id="fb_s5q10"></div>
+                </div>
+                <button class="btn btn-submit" onclick="checkSection('s5')"><i class="fas fa-check"></i> Submit</button>
+                <button class="btn btn-reset" onclick="resetSection('s5')"><i class="fas fa-redo"></i> Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 6 -->
+    <div class="section-card" id="section6">
+        <div class="section-header">
+            <h2><i class="fas fa-walking"></i> 6. Independent Practice</h2>
+            <span class="timer-badge"><i class="fas fa-clock"></i> 00:45 - 01:00</span>
+        </div>
+        <div class="section-body">
+            <div class="theory-side bilingual">
+                <p>You are doing amazing! Now it is time to solve some word problems on your own.</p><em>Kamu luar biasa! Sekarang saatnya menyelesaikan beberapa soal cerita sendirian.</em>
+                <p>Word problems require you to translate English sentences into math equations.</p><em>Soal cerita mengharuskan kamu menerjemahkan kalimat bahasa Inggris menjadi persamaan matematika.</em>
+                <p>Look for keywords like "lost", "gave away", or "remain" to know you must subtract.</p><em>Carilah kata kunci seperti "hilang", "memberikan", atau "sisa" untuk mengetahui bahwa kamu harus mengurangi.</em>
+                <p>Some problems might have extra steps, meaning you have to subtract more than once.</p><em>Beberapa soal mungkin memiliki langkah ekstra, artinya kamu harus mengurangi lebih dari sekali.</em>
+                <p>Read carefully, set up your numbers vertically, and solve step by step.</p><em>Baca dengan cermat, atur angkamu secara vertikal, dan selesaikan langkah demi langkah.</em>
+
+                <p>Multi-step problems are just two subtraction problems combined into one story.</p><em>Soal multi-langkah hanyalah dua soal pengurangan yang digabungkan menjadi satu cerita.</em>
+                <p>For example, if you have 215 stars and give 18 to a comet and 24 to a planet.</p><em>Misalnya, jika kamu memiliki 215 bintang dan memberikan 18 ke komet dan 24 ke planet.</em>
+                <p>First, subtract the 18 stars from 215 to find the intermediate amount.</p><em>Pertama, kurangi 18 bintang dari 215 untuk menemukan jumlah sementara.</em>
+                <p>Then, subtract the 24 stars from that new intermediate amount.</p><em>Kemudian, kurangi 24 bintang dari jumlah sementara baru tersebut.</em>
+                <p>Breaking it into smaller logical steps makes even the hardest problems easy to conquer!</p><em>Memecahnya menjadi langkah logis yang lebih kecil membuat soal tersulit pun mudah ditaklukkan!</em>
+                <div style="text-align:center; margin-top:15px; font-size: 3em; color: var(--accent);"><i class="fas fa-user-astronaut"></i></div>
+            </div>
+            <div class="activity-side">
+                <h3><i class="fas fa-pencil-alt"></i> Activities (Word Problems)</h3>
+                <div class="question-box" id="s6q1">
+                    <label>1. A baker had 83 cookies and sold 49. How many remain? <em>Seorang tukang roti memiliki 83 kue dan menjual 49. Berapa yang tersisa?</em></label>
+                    <input type="text" id="ans_s6q1" placeholder="Answer...">
+                    <div class="feedback" id="fb_s6q1"></div>
+                </div>
+                <div class="question-box" id="s6q2">
+                    <label>2. Rocket has 215 stars, gives 18 to a comet. How many left? <em>Roket memiliki 215 bintang, memberikan 18 ke komet. Berapa yang tersisa?</em></label>
+                    <input type="text" id="ans_s6q2" placeholder="Answer...">
+                    <div class="feedback" id="fb_s6q2"></div>
+                </div>
+                <div class="question-box" id="s6q3">
+                    <label>3. (Continued) Gives 24 stars to a planet. How many left now? <em>(Lanjutan) Memberikan 24 bintang ke planet. Berapa yang tersisa sekarang?</em></label>
+                    <input type="text" id="ans_s6q3" placeholder="Answer...">
+                    <div class="feedback" id="fb_s6q3"></div>
+                </div>
+                <div class="question-box" id="s6q4">
+                    <label>4. Commander had 400 fuel cells, used 125. How many left? <em>Komandan memiliki 400 sel bahan bakar, menggunakan 125. Berapa yang tersisa?</em></label>
+                    <input type="text" id="ans_s6q4" placeholder="Answer...">
+                    <div class="feedback" id="fb_s6q4"></div>
+                </div>
+                <div class="question-box" id="s6q5">
+                    <label>5. (Continued) Used 88 more for landing. Total remaining? <em>(Lanjutan) Menggunakan 88 lagi untuk mendarat. Total yang tersisa?</em></label>
+                    <input type="text" id="ans_s6q5" placeholder="Answer...">
+                    <div class="feedback" id="fb_s6q5"></div>
+                </div>
+                <div class="question-box" id="s6q6">
+                    <label>6. Find missing number: \( 215 - \_\_\_ = 148 \). <em>Temukan angka yang hilang: \( 215 - \_\_\_ = 148 \).</em></label>
+                    <input type="text" id="ans_s6q6" placeholder="Answer...">
+                    <div class="feedback" id="fb_s6q6"></div>
+                </div>
+                <div class="question-box" id="s6q7">
+                    <label>7. Find missing number: \( \_\_\_ - 27 = 73 \). <em>Temukan angka yang hilang: \( \_\_\_ - 27 = 73 \).</em></label>
+                    <input type="text" id="ans_s6q7" placeholder="Answer...">
+                    <div class="feedback" id="fb_s6q7"></div>
+                </div>
+                <div class="question-box" id="s6q8">
+                    <label>8. A planet is 324 light years away. After traveling 186, how far left? <em>Sebuah planet berjarak 324 tahun cahaya. Setelah menempuh 186, berapa jarak tersisa?</em></label>
+                    <input type="text" id="ans_s6q8" placeholder="Answer...">
+                    <div class="feedback" id="fb_s6q8"></div>
+                </div>
+                <div class="question-box" id="s6q9">
+                    <label>9. Space station had 502 screws, used 245. How many left? <em>Stasiun luar angkasa memiliki 502 sekrup, menggunakan 245. Berapa yang tersisa?</em></label>
+                    <input type="text" id="ans_s6q9" placeholder="Answer...">
+                    <div class="feedback" id="fb_s6q9"></div>
+                </div>
+                <div class="question-box" id="s6q10">
+                    <label>10. I had 100 stickers and gave 27 to my friend. How many remain? <em>Saya memiliki 100 stiker dan memberikan 27 ke teman. Berapa yang tersisa?</em></label>
+                    <input type="text" id="ans_s6q10" placeholder="Answer...">
+                    <div class="feedback" id="fb_s6q10"></div>
+                </div>
+                <button class="btn btn-submit" onclick="checkSection('s6')"><i class="fas fa-check"></i> Submit</button>
+                <button class="btn btn-reset" onclick="resetSection('s6')"><i class="fas fa-redo"></i> Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 7: ASSESSMENT -->
+    <div class="section-card" id="section7">
+        <div class="section-header">
+            <h2><i class="fas fa-clipboard-check"></i> 7. Assessment</h2>
+        </div>
+        <div class="section-body" style="display:block; padding: 20px;">
+            <div style="margin-bottom: 20px; display: flex; gap: 20px;">
+                <div style="flex:1">
+                    <label>Student Name / Nama Siswa:</label>
+                    <input type="text" id="studentName" style="padding:10px; font-size:1.1rem;">
+                </div>
+                <div style="flex:1">
+                    <label>Date / Tanggal:</label>
+                    <input type="date" id="studentDate" style="padding:10px; font-size:1.1rem;">
+                </div>
+            </div>
+            
+            <div class="group-selector no-print" style="text-align:center; margin-bottom:20px;">
+                <label style="font-weight:bold; display:block; margin-bottom:10px;">Select Assessment Group / Pilih Grup Assessment:</label>
+                <button class="active" onclick="loadAssessment('A')">Group A</button>
+                <button onclick="loadAssessment('B')">Group B</button>
+                <button onclick="loadAssessment('C')">Group C</button>
+                <button onclick="loadAssessment('D')">Group D</button>
+                <button onclick="loadAssessment('E')">Group E</button>
+            </div>
+
+            <div id="assessmentContainer" class="assessment-grid">
+                <!-- Filled by JS -->
+            </div>
+            <br>
+            <div style="text-align:center;" class="no-print">
+                <button class="btn btn-submit" onclick="checkAssessment()"><i class="fas fa-check"></i> Submit Assessment</button>
+                <button class="btn btn-reset" onclick="resetAssessment()"><i class="fas fa-redo"></i> Reset</button>
+                <button class="btn" style="background:#ff9800; color:white;" onclick="printAssessment()"><i class="fas fa-print"></i> Print Result</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 8: CONSOLIDATION -->
+    <div class="section-card" id="section8">
+        <div class="section-header" style="background: #4caf50;">
+            <h2><i class="fas fa-flag-checkered"></i> 8. Consolidation & Reflection</h2>
+        </div>
+        <div class="section-body" style="display:block; text-align:center; padding: 40px;">
+            <h3>Mission Accomplished! / Misi Selesai!</h3>
+            <p>Today you mastered the art of borrowing in subtraction. Remember, always check if the top number is smaller than the bottom number before you subtract.</p>
+            <em>Hari ini kamu menguasai seni meminjam dalam pengurangan. Ingat, selalu periksa apakah angka atas lebih kecil dari angka bawah sebelum kamu mengurangi.</em>
+            <br><br>
+            <a href="https://learn.algonova.id" target="_blank" class="btn btn-submit" style="font-size: 1.2rem; padding: 15px 30px; text-decoration:none;">
+                <i class="fas fa-star"></i> Go to Learn Algonova Dashboard
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // DATA BANK FOR SECTIONS
+    const sectionData = {
+        s1: {
+            q1: { ans: "33", hint: "Subtract ones: 5-2=3. Subtract tens: 4-1=3." },
+            q2: { ans: "53", hint: "Subtract ones: 8-5=3. Subtract tens: 8-3=5." },
+            q3: { ans: "2", hint: "In 124, 1 is hundreds, 2 is tens, 4 is ones." },
+            q4: { ans: "32", hint: "3 tens = 30. 30 + 2 = 32." },
+            q5: { ans: "35", hint: "9-4=5, 5-2=3." },
+            q6: { ans: "35", hint: "6-4=2, 7-4=3." },
+            q7: { ans: "hundreds", hint: "5 is in the third position from the right." },
+            q8: { ans: "64", hint: "6 tens = 60. 60 + 4 = 64." },
+            q9: { ans: "35", hint: "7-6=1, 9-2=7? Wait, 97-62: 7-2=5, 9-6=3. Answer 35." },
+            q10: { ans: "70", hint: "The digit 7 in 72 means 7 tens, which is 70." }
+        },
+        s2: {
+            q1: { ans: "No", hint: "2 is smaller than 8. You cannot subtract a bigger number from a smaller one directly." },
+            q2: { ans: "Borrow", hint: "When top < bottom, we borrow from the next left column." },
+            q3: { ans: "Tens", hint: "We borrow from the tens column to add to the ones column." },
+            q4: { ans: "10", hint: "1 Ten is equivalent to 10 Ones." },
+            q5: { ans: "Yes", hint: "5 is less than 9 in the ones column, so we must borrow." },
+            q6: { ans: "No", hint: "8 is greater than 3, so no borrowing is needed." },
+            q7: { ans: "Exchanging tens for ones", hint: "Borrowing is taking 1 Ten and exchanging it for 10 Ones." },
+            q8: { ans: "12", hint: "2 + 10 (from borrowing) = 12." },
+            q9: { ans: "The difference", hint: "Subtraction calculates the difference between two numbers." },
+            q10: { ans: "Yes", hint: "0 is less than 5 in the ones column, so borrowing is required." }
+        },
+        s3: {
+            q1: { ans: "10", hint: "1 Ten rod equals 10 small unit cubes." },
+            q2: { ans: "10", hint: "Breaking a Ten gives you 10 Ones." },
+            q3: { ans: "4", hint: "The digit 4 is in the tens place, representing 4 tens." },
+            q4: { ans: "3", hint: "4 tens minus 1 broken ten = 3 tens left." },
+            q5: { ans: "10", hint: "The broken ten turns into 10 ones." },
+            q6: { ans: "40", hint: "3 tens (30) + 10 ones (10) = 40." },
+            q7: { ans: "Tens", hint: "To the left of Ones is the Tens place." },
+            q8: { ans: "10", hint: "1 Hundred equals 10 Tens." },
+            q9: { ans: "The same", hint: "Borrowing just changes the form, not the total value." },
+            q10: { ans: "110", hint: "100 + 0 + 10 = 110." }
+        },
+        s4: {
+            q1: { ans: "A", hint: "4 borrows a ten, becoming 14." },
+            q2: { ans: "B", hint: "Because it gave a ten to ones, 2 becomes 1." },
+            q3: { ans: "A", hint: "1 borrows from hundreds, adding 10 to make 11." },
+            q4: { ans: "B", hint: "14 - 6 = 8." },
+            q5: { ans: "B", hint: "11 - 5 = 6." },
+            q6: { ans: "C", hint: "3 dropped to 2, so 2 - 1 = 1." },
+            q7: { ans: "C", hint: "Borrowing happens when Top digit < Bottom digit." },
+            q8: { ans: "B", hint: "Must borrow from hundreds to tens, then tens to ones." },
+            q9: { ans: "A", hint: "3 loses one hundred, becoming 2." },
+            q10: { ans: "A", hint: "324 - 156 = 168." }
+        },
+        s5: {
+            q1: { ans: "AB", hint: "Borrow from 8, 2 becomes 12. 8 becomes 7, not 9." },
+            q2: { ans: "AC", hint: "3 < 7 so borrow. 5 becomes 4. Tens column: 4 < 7 so borrow again." },
+            q3: { ans: "AB", hint: "Hundreds to Tens (10), Tens to Ones (10)." },
+            q4: { ans: "AC", hint: "0 becomes 10. The tens column dropped from 10 to 9." },
+            q5: { ans: "AB", hint: "1 becomes 11, 9 becomes 8." },
+            q6: { ans: "AC", hint: "Top must be larger, and columns must align." },
+            q7: { ans: "AB", hint: "We reduce it by 1 because we gave a ten to the ones." },
+            q8: { ans: "A", hint: "2 < 7 so borrow. 4-3=1, no borrow needed in tens." },
+            q9: { ans: "AB", hint: "12-5=7 and 7-4=3. Result 37." },
+            q10: { ans: "AB", hint: "Ones: 10-3=7. Tens: 9-2=7. Hundreds: 3-1=2 (not 4)." }
+        },
+        s6: {
+            q1: { ans: "34", hint: "83 - 49. Borrow: 13-9=4, 7-4=3." },
+            q2: { ans: "197", hint: "215 - 18. Borrow: 15-8=7, 0-1 (borrow) -> 10-1=9, 1->0. Result 197." },
+            q3: { ans: "173", hint: "197 - 24. 7-4=3, 9-2=7. Result 173." },
+            q4: { ans: "275", hint: "400 - 125. Borrow across zero. 10-5=5, 9-2=7, 3-1=2. Result 275." },
+            q5: { ans: "187", hint: "275 - 88. 15-8=7, 6-8(borrow)->16-8=8, 1->0. Result 187." },
+            q6: { ans: "67", hint: "215 - 148 = 67. Or 148 + 67 = 215." },
+            q7: { ans: "100", hint: "73 + 27 = 100." },
+            q8: { ans: "138", hint: "324 - 186. Double borrowing. 14-6=8, 11-8=3, 2-1=1." },
+            q9: { ans: "257", hint: "502 - 245. Borrow across zero. 12-5=7, 9-4=5, 4-2=2." },
+            q10: { ans: "73", hint: "100 - 27. 10-7=3, 9-2=7." }
+        }
+    };
+
+    // CHECK SECTION
+    function checkSection(secId) {
+        const data = sectionData[secId];
+        for (let qKey in data) {
+            const qBox = document.getElementById(qKey);
+            const inputElem = document.getElementById(`ans_${qKey}`);
+            const fbElem = document.getElementById(`fb_${qKey}`);
+            
+            let userAns = "";
+            if (inputElem.tagName === 'SELECT') userAns = inputElem.value;
+            else if (inputElem.type === 'text') userAns = inputElem.value.trim();
+            
+            const correctAns = data[qKey].ans;
+            const hint = data[qKey].hint;
+            
+            const isCorrect = userAns.toLowerCase() === correctAns.toLowerCase();
+            
+            qBox.classList.remove('correct', 'incorrect');
+            fbElem.classList.add('show');
+            
+            if (isCorrect) {
+                qBox.classList.add('correct');
+                fbElem.className = 'feedback show correct-fb';
+                fbElem.innerHTML = '<i class="fas fa-check-circle"></i> Correct! / Benar!';
+            } else {
+                qBox.classList.add('incorrect');
+                fbElem.className = 'feedback show incorrect-fb';
+                fbElem.innerHTML = `<i class="fas fa-times-circle"></i> Incorrect. / Salah. <br><strong>Help / Bantuan:</strong> ${hint} <br><em>Your answer: ${userAns}, Correct: ${correctAns}</em>`;
+            }
+        }
+    }
+
+    // RESET SECTION
+    function resetSection(secId) {
+        const data = sectionData[secId];
+        for (let qKey in data) {
+            const qBox = document.getElementById(qKey);
+            const inputElem = document.getElementById(`ans_${qKey}`);
+            const fbElem = document.getElementById(`fb_${qKey}`);
+            
+            qBox.classList.remove('correct', 'incorrect');
+            fbElem.classList.remove('show');
+            fbElem.innerHTML = '';
+            
+            if (inputElem.tagName === 'SELECT') inputElem.selectedIndex = 0;
+            else if (inputElem.type === 'text') inputElem.value = '';
+            else if (inputElem.type === 'radio' || inputElem.type === 'checkbox') {
+                // For radio/checkbox in sections 2 & 5 (handled via querySelectorAll)
+                const name = inputElem.id.substring(0, qKey.length + 4); // rough match
+                document.querySelectorAll(`input[name='ans_${qKey}']`).forEach(el => el.checked = false);
+            }
+        }
+        // Specific reset for radio/checkbox groups in s2 and s5
+        const container = document.getElementById(secId === 's2' ? 'section2' : secId === 's5' ? 'section5' : null);
+        if(container) {
+            container.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(el => el.checked = false);
+        }
+    }
+
+    // ASSESSMENT DATA GENERATOR
+    const assessmentBank = {
+        A: [
+            { q: "\( 45 - 18 \)", opts: ["27", "33", "37"], ans: "27", type: "radio", hint: "Borrow: 15-8=7, 3-1=2." },
+            { q: "\( 92 - 46 \)", ans: "46", type: "text", hint: "Borrow: 12-6=6, 8-4=4." },
+            { q: "In \( 53 - 27 \), what does the 3 become?", opts: ["13", "3", "12"], ans: "13", type: "radio", hint: "It borrows 1 ten, becoming 13." },
+            { q: "Which columns need borrowing in \( 324 - 156 \)?", ans: ["Ones", "Tens"], type: "checkbox", opts: ["Ones", "Tens", "Hundreds"], hint: "4<6 and 1<5." },
+            { q: "\( 400 - 123 \)", ans: "277", type: "text", hint: "Borrow across zero: 10-3=7, 9-2=7, 3-1=2." },
+            { q: "A baker had 83 cookies and sold 49. How many left?", ans: "34", type: "text", hint: "83-49. 13-9=4, 7-4=3." },
+            { q: "Find missing: \( 215 - \_\_\_ = 148 \)", ans: "67", type: "text", hint: "215 - 148 = 67." },
+            { q: "Borrowing 1 Ten is equal to \(\_\_\_\_ \) Ones.", opts: ["1", "10", "100"], ans: "10", type: "radio", hint: "1 Ten = 10 Ones." },
+            { q: "In \( 502 - 245 \), the zero becomes \(\_\_\_\_ \) before subtracting tens.", ans: "9", type: "text", hint: "When hundreds borrow to tens, 0 becomes 10, then gives 1 to ones, becoming 9." },
+            { q: "Commander had 400 cells, used 125. How many left?", ans: "275", type: "text", hint: "400-125 = 275." }
+        ],
+        B: [
+            { q: "\( 71 - 35 \)", ans: "36", type: "text", hint: "11-5=6, 6-3=3." },
+            { q: "In \( 82 - 45 \), the 8 becomes...", opts: ["9", "7", "6"], ans: "7", type: "radio", hint: "It gives 1 ten to ones, so it decreases by 1." },
+            { q: "Do we borrow in \( 66 - 32 \)?", opts: ["Yes", "No"], ans: "No", type: "radio", hint: "6>2 and 6>3. No borrowing." },
+            { q: "\( 324 - 186 \)", ans: "138", type: "text", hint: "14-6=8, 11-8=3, 2-1=1." },
+            { q: "Which steps are correct for \( 90 - 43 \)?", ans: ["Borrow from 9", "0 becomes 10"], type: "checkbox", opts: ["Borrow from 9", "0 becomes 10", "0 becomes 0"], hint: "We borrow from 9, 0 becomes 10." },
+            { q: "\( 713 - 458 \)", ans: "255", type: "text", hint: "13-8=5, 0-5(borrow)->10-5=5, 6-4=2." },
+            { q: "I have 100 stickers, gave 27 away. Remain?", ans: "73", type: "text", hint: "100-27. 10-7=3, 9-2=7." },
+            { q: "Find missing: \( \_\_\_ - 27 = 73 \)", ans: "100", type: "text", hint: "73 + 27 = 100." },
+            { q: "400 fuel cells - 88 for landing. Result?", ans: "312", type: "text", hint: "400-88. 10-8=2, 9-8=1, 3-0=3." },
+            { q: "What is the value of 5 in 52?", opts: ["5", "50", "2"], ans: "50", type: "radio", hint: "It is in the tens place, so 5*10=50." }
+        ],
+        C: [
+            { q: "\( 64 - 28 \)", ans: "36", type: "text", hint: "14-8=6, 5-2=3." },
+            { q: "\( 91 - 46 \)", ans: "45", type: "text", hint: "11-6=5, 8-4=4." },
+            { q: "In \( 152 - 37 \), where do we borrow from first?", opts: ["Ones", "Tens", "Hundreds"], ans: "Tens", type: "radio", hint: "We borrow from Tens to add to Ones." },
+            { q: "Select true statements about borrowing:", ans: ["Top digit < Bottom digit", "1 Ten = 10 Ones"], type: "checkbox", opts: ["Top digit < Bottom digit", "1 Ten = 10 Ones", "Borrowing changes total value"], hint: "Borrowing condition and value exchange." },
+            { q: "\( 324 - 156 \)", ans: "168", type: "text", hint: "14-6=8, 11-5=6, 2-1=1." },
+            { q: "Baker sold 49 from 83. Left?", ans: "34", type: "text", hint: "83-49=34." },
+            { q: "215 stars - 18 to comet - 24 to planet. Left?", ans: "173", type: "text", hint: "215-18=197. 197-24=173." },
+            { q: "Find missing: \( 400 - \_\_\_ = 275 \)", ans: "125", type: "text", hint: "400 - 275 = 125." },
+            { q: "In \( 502 - 245 \), what does the 2 in tens become?", ans: "9", type: "text", hint: "0 borrows from 5, becomes 10. Gives 1 to ones, becomes 9." },
+            { q: "What place is the 7 in 713?", opts: ["Ones", "Tens", "Hundreds"], ans: "Hundreds", type: "radio", hint: "7 is the third digit from right." }
+        ],
+        D: [
+            { q: "\( 55 - 19 \)", ans: "36", type: "text", hint: "15-9=6, 4-1=3." },
+            { q: "\( 83 - 49 \)", ans: "34", type: "text", hint: "13-9=4, 7-4=3." },
+            { q: "In \( 400 - 123 \), how many zeros do we borrow across?", opts: ["1", "2", "0"], ans: "2", type: "radio", hint: "We borrow across both the tens and ones zeros." },
+            { q: "Which require double borrowing?", ans: ["324-186", "713-458"], type: "checkbox", opts: ["324-186", "713-458", "82-45"], hint: "3-digit problems often need borrowing in multiple columns." },
+            { q: "\( 502 - 245 \)", ans: "257", type: "text", hint: "12-5=7, 9-4=5, 4-2=2." },
+            { q: "713 - 458 = ?", ans: "255", type: "text", hint: "13-8=5, 10-5=5, 6-4=2." },
+            { q: "400 - 125 takeoff - 88 landing. Remain?", ans: "187", type: "text", hint: "400-125=275. 275-88=187." },
+            { q: "Missing: \( 215 - 148 = \_\_\_ \)", ans: "67", type: "text", hint: "15-8=7, 10-4=6." },
+            { q: "100 - 27 = ?", ans: "73", type: "text", hint: "10-7=3, 9-2=7." },
+            { q: "If top is 0 and bottom is 5, what do we do?", opts: ["Borrow", "Write 5", "Write 0"], ans: "Borrow", type: "radio", hint: "0 < 5, so we must borrow." }
+        ],
+        E: [
+            { q: "\( 72 - 36 \)", ans: "36", type: "text", hint: "12-6=6, 6-3=3." },
+            { q: "\( 95 - 48 \)", ans: "47", type: "text", hint: "15-8=7, 8-4=4." },
+            { q: "Breaking 1 Ten gives \(\_\_\_\_ \) Ones.", opts: ["10", "1", "0"], ans: "10", type: "radio", hint: "1 Ten = 10 Ones." },
+            { q: "In \( 324 - 156 \), why do we borrow twice?", ans: ["4<6", "1<5"], type: "checkbox", opts: ["4<6", "1<5", "2>1"], hint: "Top digits are smaller than bottom in both ones and tens." },
+            { q: "What is 324 - 156?", ans: "168", type: "text", hint: "14-6=8, 11-5=6, 2-1=1." },
+            { q: "Baker had 83, sold 49. Left?", ans: "34", type: "text", hint: "83-49=34." },
+            { q: "Commander 400 - 125 = ?", ans: "275", type: "text", hint: "400-125=275." },
+            { q: "275 - 88 = ?", ans: "187", type: "text", hint: "15-8=7, 6-8(borrow)->16-8=8, 1->0." },
+            { q: "Missing: \( 215 - \_\_\_ = 148 \)", ans: "67", type: "text", hint: "215-148=67." },
+            { q: "Write the equation for 100 minus 27:", ans: "100 - 27 = 73", type: "text", hint: "Format: X - Y = Z" }
+        ]
+    };
+
+    let currentGroup = 'A';
+
+    function loadAssessment(group) {
+        currentGroup = group;
+        document.querySelectorAll('.group-selector button').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        
+        const container = document.getElementById('assessmentContainer');
+        container.innerHTML = '';
+        
+        const questions = assessmentBank[group];
+        questions.forEach((q, i) => {
+            let inputHTML = '';
+            const qDiv = document.createElement('div');
+            qDiv.className = 'question-box';
+            qDiv.id = `asq${i+1}`;
+            
+            if(q.type === 'radio') {
+                inputHTML = `<div class="radio-group">`;
+                q.opts.forEach((opt, idx) => {
+                    inputHTML += `<label><input type="radio" name="ans_asq${i+1}" value="${opt}"> ${opt}</label>`;
+                });
+                inputHTML += `</div>`;
+            } else if (q.type === 'checkbox') {
+                inputHTML = `<div class="radio-group">`;
+                q.opts.forEach((opt, idx) => {
+                    inputHTML += `<label><input type="checkbox" id="asq${i+1}_opt${idx}" value="${opt}"> ${opt}</label>`;
+                });
+                inputHTML += `</div>`;
+            } else {
+                inputHTML = `<input type="text" id="ans_asq${i+1}" placeholder="Type answer...">`;
+            }
+            
+            qDiv.innerHTML = `
+                <label><strong>${i+1}.</strong> ${q.q}</label>
+                ${inputHTML}
+                <div class="feedback" id="fb_asq${i+1}"></div>
+            `;
+            container.appendChild(qDiv);
+        });
+    }
+
+    function checkAssessment() {
+        const questions = assessmentBank[currentGroup];
+        let score = 0;
+        
+        questions.forEach((q, i) => {
+            const qBox = document.getElementById(`asq${i+1}`);
+            const fbElem = document.getElementById(`fb_asq${i+1}`);
+            let userAns = "";
+            let isCorrect = false;
+            
+            if(q.type === 'radio') {
+                const sel = document.querySelector(`input[name="ans_asq${i+1}"]:checked`);
+                userAns = sel ? sel.value : "";
+                isCorrect = userAns === q.ans;
+            } else if(q.type === 'checkbox') {
+                let selected = [];
+                q.opts.forEach((opt, idx) => {
+                    if(document.getElementById(`asq${i+1}_opt${idx}`).checked) selected.push(opt);
+                });
+                userAns = selected.join(", ");
+                isCorrect = JSON.stringify(selected) === JSON.stringify(q.ans);
+            } else {
+                userAns = document.getElementById(`ans_asq${i+1}`).value.trim();
+                isCorrect = userAns.toLowerCase() === q.ans.toLowerCase();
+            }
+            
+            if(isCorrect) score++;
+            
+            qBox.classList.remove('correct', 'incorrect');
+            fbElem.classList.add('show');
+            
+            if(isCorrect) {
+                qBox.classList.add('correct');
+                fbElem.className = 'feedback show correct-fb';
+                fbElem.innerHTML = '<i class="fas fa-check-circle"></i> Correct! / Benar!';
+            } else {
+                qBox.classList.add('incorrect');
+                fbElem.className = 'feedback show incorrect-fb';
+                fbElem.innerHTML = `<i class="fas fa-times-circle"></i> Incorrect. / Salah.<br><strong>Correct Answer / Jawaban Benar:</strong> ${q.ans}<br><strong>Step / Langkah:</strong> ${q.hint}`;
+            }
+        });
+        alert(`Assessment Group ${currentGroup} Score / Skor: ${score}/10`);
+    }
+
+    function resetAssessment() {
+        loadAssessment(currentGroup);
+    }
+
+    function printAssessment() {
+        const studentName = document.getElementById('studentName').value || "Student";
+        const studentDate = document.getElementById('studentDate').value || "N/A";
+        const questions = assessmentBank[currentGroup];
+        
+        let score = 0;
+        let tableRows = "";
+        
+        questions.forEach((q, i) => {
+            let userAns = "";
+            let isCorrect = false;
+            
+            if(q.type === 'radio') {
+                const sel = document.querySelector(`input[name="ans_asq${i+1}"]:checked`);
+                userAns = sel ? sel.value : "(blank)";
+                isCorrect = userAns === q.ans;
+            } else if(q.type === 'checkbox') {
+                let selected = [];
+                q.opts.forEach((opt, idx) => {
+                    if(document.getElementById(`asq${i+1}_opt${idx}`).checked) selected.push(opt);
+                });
+                userAns = selected.length > 0 ? selected.join(", ") : "(blank)";
+                isCorrect = JSON.stringify(selected) === JSON.stringify(q.ans);
+            } else {
+                userAns = document.getElementById(`ans_asq${i+1}`).value.trim() || "(blank)";
+                isCorrect = userAns.toLowerCase() === q.ans.toLowerCase();
+            }
+            
+            if(isCorrect) score++;
+            
+            tableRows += `<tr style="border-bottom:1px solid #ccc;"><td style="padding:5px;">${i+1}</td><td style="padding:5px;">${q.q}</td><td style="padding:5px; color:${isCorrect ? 'green' : 'red'}">${userAns}</td><td style="padding:5px;">${q.ans}</td></tr>`;
+        });
+
+        const printWindow = window.open('', '_blank');
+        printWindow.document.write(`
+            <html><head><title>Assessment Result</title></head>
+            <body style="font-family: Arial, sans-serif; padding: 20px;">
+                <h2 style="color: #4361ee;">Assessment Result / Hasil Assessment</h2>
+                <p><strong>Topic / Topik:</strong> Subtraction with Borrowing</p>
+                <p><strong>Name / Nama:</strong> ${studentName}</p>
+                <p><strong>Date / Tanggal:</strong> ${studentDate}</p>
+                <p><strong>Group / Grup:</strong> ${currentGroup}</p>
+                <p><strong>Score / Skor:</strong> ${score} / 10</p>
+                <hr>
+                <table style="width:100%; border-collapse:collapse; text-align:left;">
+                    <tr style="background:#4361ee; color:white;"><th style="padding:10px;">No</th><th style="padding:10px;">Question / Soal</th><th style="padding:10px;">Student Answer</th><th style="padding:10px;">Correct Answer</th></tr>
+                    ${tableRows}
+                </table>
+            </body></html>
+        `);
+        printWindow.document.close();
+        printWindow.print();
+    }
+
+    // Initialize Assessment A on load
+    window.onload = function() {
+        loadAssessment('A');
+    };
+</script>
+
+</body>
+</html>
