@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subtraction with Borrowing Fluency & Problem Solving</title>
     <!-- MathJax for Math Equations -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -686,95 +685,97 @@
 </div>
 
 <script>
-    // DATA BANK FOR SECTIONS
+    // DATA BANK FOR SECTIONS - Keys disesuaikan dengan ID HTML (s1q1, s2q1, dll)
     const sectionData = {
         s1: {
-            q1: { ans: "33", hint: "Subtract ones: 5-2=3. Subtract tens: 4-1=3." },
-            q2: { ans: "53", hint: "Subtract ones: 8-5=3. Subtract tens: 8-3=5." },
-            q3: { ans: "2", hint: "In 124, 1 is hundreds, 2 is tens, 4 is ones." },
-            q4: { ans: "32", hint: "3 tens = 30. 30 + 2 = 32." },
-            q5: { ans: "35", hint: "9-4=5, 5-2=3." },
-            q6: { ans: "35", hint: "6-4=2, 7-4=3." },
-            q7: { ans: "hundreds", hint: "5 is in the third position from the right." },
-            q8: { ans: "64", hint: "6 tens = 60. 60 + 4 = 64." },
-            q9: { ans: "35", hint: "97-62: 7-2=5, 9-6=3. Answer 35." },
-            q10: { ans: "70", hint: "The digit 7 in 72 means 7 tens, which is 70." }
+            s1q1: { ans: "33", hint: "Subtract ones: 5-2=3. Subtract tens: 4-1=3." },
+            s1q2: { ans: "53", hint: "Subtract ones: 8-5=3. Subtract tens: 8-3=5." },
+            s1q3: { ans: "2", hint: "In 124, 1 is hundreds, 2 is tens, 4 is ones." },
+            s1q4: { ans: "32", hint: "3 tens = 30. 30 + 2 = 32." },
+            s1q5: { ans: "35", hint: "9-4=5, 5-2=3." },
+            s1q6: { ans: "35", hint: "6-4=2, 7-4=3." },
+            s1q7: { ans: "hundreds", hint: "5 is in the third position from the right." },
+            s1q8: { ans: "64", hint: "6 tens = 60. 60 + 4 = 64." },
+            s1q9: { ans: "35", hint: "97-62: 7-2=5, 9-6=3. Answer 35." },
+            s1q10: { ans: "70", hint: "The digit 7 in 72 means 7 tens, which is 70." }
         },
         s2: {
-            q1: { ans: "No", hint: "2 is smaller than 8. You cannot subtract a bigger number from a smaller one directly." },
-            q2: { ans: "Borrow", hint: "When top < bottom, we borrow from the next left column." },
-            q3: { ans: "Tens", hint: "We borrow from the tens column to add to the ones column." },
-            q4: { ans: "10", hint: "1 Ten is equivalent to 10 Ones." },
-            q5: { ans: "Yes", hint: "5 is less than 9 in the ones column, so we must borrow." },
-            q6: { ans: "No", hint: "8 is greater than 3, so no borrowing is needed." },
-            q7: { ans: "Exchanging tens for ones", hint: "Borrowing is taking 1 Ten and exchanging it for 10 Ones." },
-            q8: { ans: "12", hint: "2 + 10 (from borrowing) = 12." },
-            q9: { ans: "The difference", hint: "Subtraction calculates the difference between two numbers." },
-            q10: { ans: "Yes", hint: "0 is less than 5 in the ones column, so borrowing is required." }
+            s2q1: { ans: "No", hint: "2 is smaller than 8. You cannot subtract a bigger number from a smaller one directly." },
+            s2q2: { ans: "Borrow", hint: "When top < bottom, we borrow from the next left column." },
+            s2q3: { ans: "Tens", hint: "We borrow from the tens column to add to the ones column." },
+            s2q4: { ans: "10", hint: "1 Ten is equivalent to 10 Ones." },
+            s2q5: { ans: "Yes", hint: "5 is less than 9 in the ones column, so we must borrow." },
+            s2q6: { ans: "No", hint: "8 is greater than 3, so no borrowing is needed." },
+            s2q7: { ans: "Exchanging tens for ones", hint: "Borrowing is taking 1 Ten and exchanging it for 10 Ones." },
+            s2q8: { ans: "12", hint: "2 + 10 (from borrowing) = 12." },
+            s2q9: { ans: "The difference", hint: "Subtraction calculates the difference between two numbers." },
+            s2q10: { ans: "Yes", hint: "0 is less than 5 in the ones column, so borrowing is required." }
         },
         s3: {
-            q1: { ans: "10", hint: "1 Ten rod equals 10 small unit cubes." },
-            q2: { ans: "10", hint: "Breaking a Ten gives you 10 Ones." },
-            q3: { ans: "4", hint: "The digit 4 is in the tens place, representing 4 tens." },
-            q4: { ans: "3", hint: "4 tens minus 1 broken ten = 3 tens left." },
-            q5: { ans: "10", hint: "The broken ten turns into 10 ones." },
-            q6: { ans: "40", hint: "3 tens (30) + 10 ones (10) = 40." },
-            q7: { ans: "Tens", hint: "To the left of Ones is the Tens place." },
-            q8: { ans: "10", hint: "1 Hundred equals 10 Tens." },
-            q9: { ans: "The same", hint: "Borrowing just changes the form, not the total value." },
-            q10: { ans: "110", hint: "100 + 0 + 10 = 110." }
+            s3q1: { ans: "10", hint: "1 Ten rod equals 10 small unit cubes." },
+            s3q2: { ans: "10", hint: "Breaking a Ten gives you 10 Ones." },
+            s3q3: { ans: "4", hint: "The digit 4 is in the tens place, representing 4 tens." },
+            s3q4: { ans: "3", hint: "4 tens minus 1 broken ten = 3 tens left." },
+            s3q5: { ans: "10", hint: "The broken ten turns into 10 ones." },
+            s3q6: { ans: "40", hint: "3 tens (30) + 10 ones (10) = 40." },
+            s3q7: { ans: "Tens", hint: "To the left of Ones is the Tens place." },
+            s3q8: { ans: "10", hint: "1 Hundred equals 10 Tens." },
+            s3q9: { ans: "The same", hint: "Borrowing just changes the form, not the total value." },
+            s3q10: { ans: "110", hint: "100 + 0 + 10 = 110." }
         },
         s4: {
-            q1: { ans: "A", hint: "4 borrows a ten, becoming 14." },
-            q2: { ans: "B", hint: "Because it gave a ten to ones, 2 becomes 1." },
-            q3: { ans: "A", hint: "1 borrows from hundreds, adding 10 to make 11." },
-            q4: { ans: "B", hint: "14 - 6 = 8." },
-            q5: { ans: "B", hint: "11 - 5 = 6." },
-            q6: { ans: "C", hint: "3 dropped to 2, so 2 - 1 = 1." },
-            q7: { ans: "C", hint: "Borrowing happens when Top digit < Bottom digit." },
-            q8: { ans: "B", hint: "Must borrow from hundreds to tens, then tens to ones." },
-            q9: { ans: "A", hint: "3 loses one hundred, becoming 2." },
-            q10: { ans: "A", hint: "324 - 156 = 168." }
+            s4q1: { ans: "A", hint: "4 borrows a ten, becoming 14." },
+            s4q2: { ans: "B", hint: "Because it gave a ten to ones, 2 becomes 1." },
+            s4q3: { ans: "A", hint: "1 borrows from hundreds, adding 10 to make 11." },
+            s4q4: { ans: "B", hint: "14 - 6 = 8." },
+            s4q5: { ans: "B", hint: "11 - 5 = 6." },
+            s4q6: { ans: "C", hint: "3 dropped to 2, so 2 - 1 = 1." },
+            s4q7: { ans: "C", hint: "Borrowing happens when Top digit < Bottom digit." },
+            s4q8: { ans: "B", hint: "Must borrow from hundreds to tens, then tens to ones." },
+            s4q9: { ans: "A", hint: "3 loses one hundred, becoming 2." },
+            s4q10: { ans: "A", hint: "324 - 156 = 168." }
         },
         s5: {
-            q1: { ans: "AB", hint: "Borrow from 8, 2 becomes 12. 8 becomes 7, not 9." },
-            q2: { ans: "AC", hint: "3 < 7 so borrow. 5 becomes 4. Tens column: 4 < 7 so borrow again." },
-            q3: { ans: "AB", hint: "Hundreds to Tens (10), Tens to Ones (10)." },
-            q4: { ans: "AC", hint: "0 becomes 10. The tens column dropped from 10 to 9." },
-            q5: { ans: "AB", hint: "1 becomes 11, 9 becomes 8." },
-            q6: { ans: "AC", hint: "Top must be larger, and columns must align." },
-            q7: { ans: "AB", hint: "We reduce it by 1 because we gave a ten to the ones." },
-            q8: { ans: "A", hint: "2 < 7 so borrow. 4-3=1, no borrow needed in tens." },
-            q9: { ans: "AB", hint: "12-5=7 and 7-4=3. Result 37." },
-            q10: { ans: "AB", hint: "Ones: 10-3=7. Tens: 9-2=7. Hundreds: 3-1=2 (not 4)." }
+            s5q1: { ans: "AB", hint: "Borrow from 8, 2 becomes 12. 8 becomes 7, not 9." },
+            s5q2: { ans: "AC", hint: "3 < 7 so borrow. 5 becomes 4. Tens column: 4 < 7 so borrow again." },
+            s5q3: { ans: "AB", hint: "Hundreds to Tens (10), Tens to Ones (10)." },
+            s5q4: { ans: "AC", hint: "0 becomes 10. The tens column dropped from 10 to 9." },
+            s5q5: { ans: "AB", hint: "1 becomes 11, 9 becomes 8." },
+            s5q6: { ans: "AC", hint: "Top must be larger, and columns must align." },
+            s5q7: { ans: "AB", hint: "We reduce it by 1 because we gave a ten to the ones." },
+            s5q8: { ans: "A", hint: "2 < 7 so borrow. 4-3=1, no borrow needed in tens." },
+            s5q9: { ans: "AB", hint: "12-5=7 and 7-4=3. Result 37." },
+            s5q10: { ans: "AB", hint: "Ones: 10-3=7. Tens: 9-2=7. Hundreds: 3-1=2 (not 4)." }
         },
         s6: {
-            q1: { ans: "34", hint: "83 - 49. Borrow: 13-9=4, 7-4=3." },
-            q2: { ans: "197", hint: "215 - 18. Borrow: 15-8=7, 0-1 (borrow) -> 10-1=9, 1->0. Result 197." },
-            q3: { ans: "173", hint: "197 - 24. 7-4=3, 9-2=7. Result 173." },
-            q4: { ans: "275", hint: "400 - 125. Borrow across zero. 10-5=5, 9-2=7, 3-1=2. Result 275." },
-            q5: { ans: "187", hint: "275 - 88. 15-8=7, 6-8(borrow)->16-8=8, 1->0. Result 187." },
-            q6: { ans: "67", hint: "215 - 148 = 67. Or 148 + 67 = 215." },
-            q7: { ans: "100", hint: "73 + 27 = 100." },
-            q8: { ans: "138", hint: "324 - 186. Double borrowing. 14-6=8, 11-8=3, 2-1=1." },
-            q9: { ans: "257", hint: "502 - 245. Borrow across zero. 12-5=7, 9-4=5, 4-2=2." },
-            q10: { ans: "73", hint: "100 - 27. 10-7=3, 9-2=7." }
+            s6q1: { ans: "34", hint: "83 - 49. Borrow: 13-9=4, 7-4=3." },
+            s6q2: { ans: "197", hint: "215 - 18. Borrow: 15-8=7, 0-1 (borrow) -> 10-1=9, 1->0. Result 197." },
+            s6q3: { ans: "173", hint: "197 - 24. 7-4=3, 9-2=7. Result 173." },
+            s6q4: { ans: "275", hint: "400 - 125. Borrow across zero. 10-5=5, 9-2=7, 3-1=2. Result 275." },
+            s6q5: { ans: "187", hint: "275 - 88. 15-8=7, 6-8(borrow)->16-8=8, 1->0. Result 187." },
+            s6q6: { ans: "67", hint: "215 - 148 = 67. Or 148 + 67 = 215." },
+            s6q7: { ans: "100", hint: "73 + 27 = 100." },
+            s6q8: { ans: "138", hint: "324 - 186. Double borrowing. 14-6=8, 11-8=3, 2-1=1." },
+            s6q9: { ans: "257", hint: "502 - 245. Borrow across zero. 12-5=7, 9-4=5, 4-2=2." },
+            s6q10: { ans: "73", hint: "100 - 27. 10-7=3, 9-2=7." }
         }
     };
 
-    // CHECK SECTION (FIXED)
+    // CHECK SECTION
     function checkSection(secId) {
         const data = sectionData[secId];
         for (let qKey in data) {
             const qBox = document.getElementById(qKey);
             const fbElem = document.getElementById(`fb_${qKey}`);
             
+            if (!qBox || !fbElem) continue; // Lewati jika elemen tidak ditemukan
+            
             let userAns = "";
             let isCorrect = false;
             const correctAns = data[qKey].ans;
             const hint = data[qKey].hint;
             
-            // Deteksi tipe input secara otomatis di dalam kotak soal
+            // Deteksi tipe input secara otomatis
             const textInput = qBox.querySelector('input[type="text"]');
             const selectInput = qBox.querySelector('select');
             const checkboxes = qBox.querySelectorAll('input[type="checkbox"]');
@@ -817,7 +818,7 @@
         }
     }
 
-    // RESET SECTION (FIXED)
+    // RESET SECTION
     function resetSection(secId) {
         const data = sectionData[secId];
         for (let qKey in data) {
@@ -906,7 +907,7 @@
     function loadAssessment(group) {
         currentGroup = group;
         document.querySelectorAll('.group-selector button').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
+        if(event && event.target) event.target.classList.add('active');
         
         const container = document.getElementById('assessmentContainer');
         container.innerHTML = '';
