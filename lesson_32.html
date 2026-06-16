@@ -55,6 +55,29 @@
         .visual-math span { color: var(--error); font-weight: bold; text-decoration: line-through; }
         .visual-math .borrow { color: var(--success); font-weight: bold; text-decoration: none; }
         .keyword-box { background: #e3f2fd; padding: 10px; border-radius: 8px; margin: 10px 0; border-left: 4px solid var(--primary); }
+        /* CSS untuk Visual Matematika Grid yang Lebar & Rapi */
+        .math-grid {
+            display: inline-grid;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            background: #e8eaf6;
+            padding: 15px 25px;
+            border-radius: 8px;
+            border: 2px solid var(--primary);
+            margin: 15px 0;
+        }
+        .math-grid.cols-3 { grid-template-columns: 35px 1fr 1fr; gap: 0px 15px; }
+        .math-grid.cols-4 { grid-template-columns: 35px 1fr 1fr 1fr; gap: 0px 15px; }
+        .math-grid div { padding: 5px 0; line-height: 1.1; }
+        .math-grid .line { grid-column: 1 / -1; border-top: 3px solid var(--text); margin-top: 5px; }
+        .math-grid .crossed { color: var(--error); text-decoration: line-through; opacity: 0.6; }
+        .math-grid .borrowed { color: var(--success); font-size: 1.1rem; }
+        .math-grid .op { color: var(--text); font-weight: normal; text-align: right; padding-right: 5px; }
+        .highlight-red { border: 2px dashed var(--error); padding: 2px 8px; border-radius: 5px; background: rgba(229, 57, 53, 0.1); }
+        .math-grid .highlight-red { font-size: 1.3rem; font-weight: bold; color: var(--error); }
+        .math-grid .header-text { font-size: 0.8rem; color: #6c757d; font-weight: normal; font-family: 'Segoe UI', sans-serif; }
     </style>
 </head>
 <body>
@@ -178,9 +201,25 @@
                 
                 <p>Imagine you are a Space Commander. You need 52 liters of fuel, but you only have 38 liters in your tank. To find out how much more fuel you need, you must subtract 38 from 52.</p>
                 
+                <div class="math-grid cols-3">
+                    <div class="header-text"></div>
+                    <div class="header-text">Tens</div>
+                    <div class="header-text highlight-red">Ones</div>
+                    
+                    <div></div>
+                    <div>5</div>
+                    <div class="highlight-red">2</div>
+                    
+                    <div class="op">-</div>
+                    <div>3</div>
+                    <div class="highlight-red">8</div>
+                    
+                    <div class="line"></div>
+                </div>
+            
                 <div class="alert-box danger">
                     <i class="fas fa-exclamation-triangle" style="color:var(--error);"></i>
-                    <div><strong>Problem!</strong> Look at the ones column: 2 is smaller than 8. We cannot take 8 away from 2 directly!</div>
+                    <div><strong>Problem!</strong> Look at the <span class="highlight-red">Ones column</span>: 2 is smaller than 8. We cannot take 8 away from 2 directly!</div>
                 </div>
             
                 <p>This is exactly where we use our <strong>"Space Borrowing"</strong> power! When the top digit is smaller, we borrow from the next place value. Borrowing means taking one "Ten" and breaking it into ten "Ones". By understanding why we borrow, math becomes a logical tool!</p>
@@ -188,7 +227,7 @@
                 <div style="text-align:center; margin:15px 0; font-size: 3em; color: var(--primary);"><i class="fas fa-space-shuttle"></i></div>
             
                 <p style="color:#6c757d; font-style:italic; margin-top:20px;">Bayangkan kamu adalah Komandan Luar Angkasa. Kamu membutuhkan 52 liter bahan bakar, tetapi hanya memiliki 38 liter. Untuk mengetahui berapa banyak bahan bakar tambahan, kamu harus mengurangkan 38 dari 52.</p>
-                <p style="color:#6c757d; font-style:italic;"><strong>Masalah!</strong> Perhatikan kolom satuan: 2 lebih kecil dari 8. Kita tidak bisa mengambil 8 dari 2 secara langsung! Inilah di mana kita menggunakan kekuatan <strong>"Meminjam Antariksa"</strong>! Ketika digit atas lebih kecil, kita meminjam dari nilai tempat berikutnya. Meminjam berarti mengambil satu "Puluhan" dan memecahnya menjadi sepuluh "Satuan".</p>
+                <p style="color:#6c757d; font-style:italic;"><strong>Masalah!</strong> Lihat <span class="highlight-red">kolom Satuan (Ones)</span>: 2 lebih kecil dari 8. Kita tidak bisa mengambil 8 dari 2 secara langsung! Inilah di mana kita menggunakan kekuatan <strong>"Meminjam Antariksa"</strong>! Ketika digit atas lebih kecil, kita meminjam dari nilai tempat berikutnya. Meminjam berarti mengambil satu "Puluhan" dan memecahnya menjadi sepuluh "Satuan".</p>
             </div>
             <div class="activity-side">
                 <h3><i class="fas fa-pencil-alt"></i> Activities</h3>
@@ -387,12 +426,28 @@
                     </div>
                 </div>
             
-                <div class="visual-math">
-                    &nbsp;&nbsp;2&nbsp;&nbsp;11&nbsp;&nbsp;14<br>
-                    <span>3</span><span>2</span><span>4</span><br>
-                    -1 &nbsp;5 &nbsp;6<br>
-                    _________<br>
-                    &nbsp;&nbsp;1 &nbsp;&nbsp;6 &nbsp;&nbsp;8
+                <div class="math-grid cols-4">
+                    <div></div>
+                    <div class="borrowed">2</div>
+                    <div class="borrowed">11</div>
+                    <div class="borrowed">14</div>
+                    
+                    <div></div>
+                    <div class="crossed">3</div>
+                    <div class="crossed">2</div>
+                    <div class="crossed">4</div>
+                    
+                    <div class="op">-</div>
+                    <div>1</div>
+                    <div>5</div>
+                    <div>6</div>
+                    
+                    <div class="line"></div>
+                    
+                    <div></div>
+                    <div>1</div>
+                    <div>6</div>
+                    <div>8</div>
                 </div>
             
                 <p style="color:#6c757d; font-style:italic; margin-top:20px;">Mari kita lihat soal 3 digit: \( 324 - 156 \). Kita mulai dari satuan. 4 kurang 6? Kita tidak bisa! Kita meminjam dari puluhan. 4 menjadi 14. Sekarang kita pindah ke puluhan... Oh tidak, reaksi berantai!</p>
@@ -480,12 +535,24 @@
                 
                 <p>Your turn to lead! Let's set up our vertical subtraction properly. Always remember the golden rule: <strong>Top number minus Bottom number</strong>. Make sure the ones and tens line up perfectly.</p>
             
-                <div class="visual-math" style="border-color: #4cc9f0;">
-                    &nbsp;&nbsp;7&nbsp;&nbsp;12<br>
-                    <span>8</span><span>2</span><br>
-                    -4 &nbsp;5<br>
-                    _________<br>
-                    &nbsp;&nbsp;3 &nbsp;&nbsp;7
+                <div class="math-grid cols-3">
+                    <div></div>
+                    <div class="borrowed">7</div>
+                    <div class="borrowed">12</div>
+                    
+                    <div></div>
+                    <div class="crossed">8</div>
+                    <div class="crossed">2</div>
+                    
+                    <div class="op">-</div>
+                    <div>4</div>
+                    <div>5</div>
+                    
+                    <div class="line"></div>
+                    
+                    <div></div>
+                    <div>3</div>
+                    <div>7</div>
                 </div>
             
                 <div class="alert-box danger">
