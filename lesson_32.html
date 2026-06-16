@@ -42,6 +42,19 @@
         .drag-container { display: flex; gap: 10px; flex-wrap: wrap; } .draggable { background: var(--accent); padding: 5px 10px; border-radius: 4px; cursor: grab; color: white; }
         .dropzone { border: 2px dashed var(--border); min-height: 40px; padding: 10px; border-radius: 4px; }
         @media print { .no-print { display: none; } }
+
+        /* Tambahan CSS untuk Visual Menarik */
+        .mission-title { font-size: 1.2rem; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; border-bottom: 2px dashed var(--border); padding-bottom: 5px; }
+        .alert-box { background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 12px; margin: 10px 0; display: flex; align-items: center; gap: 10px; }
+        .alert-box.danger { background: #ffebee; border-color: var(--error); }
+        .alert-box i { font-size: 1.5rem; }
+        .step-cards { display: flex; gap: 10px; margin: 15px 0; }
+        .step-card { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 10px; text-align: center; flex: 1; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .step-card strong { display: block; color: var(--primary); margin-bottom: 5px; }
+        .visual-math { background: #e8eaf6; padding: 10px; border-radius: 8px; font-family: monospace; font-size: 1.1rem; text-align: center; margin: 10px 0; border: 2px solid var(--primary); }
+        .visual-math span { color: var(--error); font-weight: bold; text-decoration: line-through; }
+        .visual-math .borrow { color: var(--success); font-weight: bold; text-decoration: none; }
+        .keyword-box { background: #e3f2fd; padding: 10px; border-radius: 8px; margin: 10px 0; border-left: 4px solid var(--primary); }
     </style>
 </head>
 <body>
@@ -68,18 +81,32 @@
         </div>
         <div class="section-body">
             <div class="theory-side bilingual">
-                <p>Subtraction is taking one number away from another to find the difference. In mathematics, we write this as an equation like \( 45 - 12 = 33 \). When the top digit is larger than the bottom digit, we can subtract directly without borrowing. This process is called simple subtraction and it forms the foundation of our math journey. Let us review these basic skills to warm up our brains for today's space mission.</p>
-                <p>Place value tells us the value of a digit based on its position in the number. For example, in the number 124, the digit 2 is in the tens place. That means its actual value is 20, not just the number 2. Understanding place value is crucial before we learn how to borrow across columns. Base-ten blocks like rods and units help us see this relationship clearly.</p>
+                <div class="mission-title"><i class="fas fa-satellite-dish"></i> Pre-Launch System Check</div>
                 
-                <table class="illust-table" style="margin-top:15px;">
-                    <tr><th>Place Value / Nilai Tempat</th><th>Example / Contoh</th></tr>
-                    <tr><td>Hundreds / Ratusan</td><td>1 in 124</td></tr>
-                    <tr><td>Tens / Puluhan</td><td>2 in 124</td></tr>
-                    <tr><td>Ones / Satuan</td><td>4 in 124</td></tr>
-                </table>
+                <p>Subtraction is taking one number away from another to find the difference. We write this as an equation like \( 45 - 12 = 33 \). When the top digit is larger than the bottom digit, we subtract directly. Let's review these basic skills to warm up our brains for today's space mission!</p>
+                
+                <div class="step-cards">
+                    <div class="step-card">
+                        <strong>Hundreds</strong>
+                        <i class="fas fa-cube" style="font-size:1.5rem; color:#4361ee;"></i>
+                        <div style="font-size:0.8rem; margin-top:5px;">100s place</div>
+                    </div>
+                    <div class="step-card">
+                        <strong>Tens</strong>
+                        <i class="fas fa-grip-lines-vertical" style="font-size:1.5rem; color:#3f37c9;"></i>
+                        <div style="font-size:0.8rem; margin-top:5px;">10s place</div>
+                    </div>
+                    <div class="step-card">
+                        <strong>Ones</strong>
+                        <i class="fas fa-circle" style="font-size:1.5rem; color:#4cc9f0;"></i>
+                        <div style="font-size:0.8rem; margin-top:5px;">1s place</div>
+                    </div>
+                </div>
             
-                <p style="color:#6c757d; font-style:italic; margin-top:20px;">Pengurangan adalah mengambil satu angka dari angka lain untuk menemukan selisihnya. Dalam matematika, kita menulis ini sebagai persamaan seperti \( 45 - 12 = 33 \). Ketika digit atas lebih besar dari digit bawah, kita bisa mengurangi secara langsung tanpa meminjam. Proses ini disebut pengurangan sederhana dan ini membentuk fondasi perjalanan matematika kita. Mari kita tinjau keterampilan dasar ini untuk menghangatkan otak kita untuk misi luar angkasa hari ini.</p>
-                <p style="color:#6c757d; font-style:italic;">Nilai tempat memberi tahu kita nilai sebuah digit berdasarkan posisinya di dalam angka. Misalnya, pada angka 124, digit 2 berada di tempat puluhan. Itu berarti nilai sebenarnya adalah 20, bukan hanya angka 2. Memahami nilai tempat sangat penting sebelum kita belajar cara meminjam antar kolom. Balok basis-sepuluh seperti batang dan unit membantu kita melihat hubungan ini dengan jelas.</p>
+                <p>Place value tells us the value of a digit based on its position. For example, in 124, the digit 2 is in the tens place, meaning its actual value is 20. Base-ten blocks help us see this relationship clearly.</p>
+            
+                <p style="color:#6c757d; font-style:italic; margin-top:20px;">Pengurangan adalah mengambil satu angka dari angka lain untuk menemukan selisihnya. Kita menulis ini sebagai persamaan seperti \( 45 - 12 = 33 \). Ketika digit atas lebih besar dari digit bawah, kita bisa mengurangi secara langsung. Mari kita tinjau keterampilan dasar ini untuk misi luar angkasa hari ini!</p>
+                <p style="color:#6c757d; font-style:italic;">Nilai tempat memberi tahu kita nilai sebuah digit berdasarkan posisinya. Misalnya, pada angka 124, digit 2 berada di tempat puluhan, yang berarti nilainya 20. Balok basis-sepuluh membantu kita melihat hubungan ini dengan jelas.</p>
             </div>
             <div class="activity-side">
                 <h3><i class="fas fa-pencil-alt"></i> Activities</h3>
@@ -147,13 +174,21 @@
         </div>
         <div class="section-body">
             <div class="theory-side bilingual">
-                <p>Imagine you are a Space Commander fueling a rocket for a long journey. You need 52 liters of fuel, but you only have 38 liters in your tank right now. To find out how much more fuel you need, you must subtract 38 from 52. But look closely at the ones column: 2 is smaller than 8, so we cannot take 8 away from 2 directly. This is exactly where we use our "Space Borrowing" power to solve the problem!</p>
-                <p>Subtraction is not just about numbers; it helps us solve real-world problems like shopping or measuring. When the top digit is smaller than the bottom digit, we must borrow from the next place value. Borrowing means taking one "Ten" and breaking it into ten "Ones" to make the top number larger. This concept ensures that we never run out of units when subtracting in real life scenarios. By understanding why we borrow, math becomes a logical tool rather than just memorizing steps.</p>
+                <div class="mission-title"><i class="fas fa-rocket"></i> Mission Briefing</div>
                 
-                <div style="text-align:center; margin-top:15px; font-size: 3em; color: var(--primary);"><i class="fas fa-space-shuttle"></i></div>
+                <p>Imagine you are a Space Commander. You need 52 liters of fuel, but you only have 38 liters in your tank. To find out how much more fuel you need, you must subtract 38 from 52.</p>
+                
+                <div class="alert-box danger">
+                    <i class="fas fa-exclamation-triangle" style="color:var(--error);"></i>
+                    <div><strong>Problem!</strong> Look at the ones column: 2 is smaller than 8. We cannot take 8 away from 2 directly!</div>
+                </div>
             
-                <p style="color:#6c757d; font-style:italic; margin-top:20px;">Bayangkan kamu adalah Komandan Luar Angkasa yang mengisi bahan bakar roket untuk perjalanan panjang. Kamu membutuhkan 52 liter bahan bakar, tetapi kamu hanya memiliki 38 liter di tangkimu sekarang. Untuk mengetahui berapa banyak bahan bakar tambahan yang kamu butuhkan, kamu harus mengurangkan 38 dari 52. Tetapi perhatikan kolom satuan: 2 lebih kecil dari 8, jadi kita tidak bisa mengambil 8 dari 2 secara langsung. Inilah tepatnya di mana kita menggunakan kekuatan "Meminjam Antariksa" kita untuk menyelesaikan masalah!</p>
-                <p style="color:#6c757d; font-style:italic;">Pengurangan bukan hanya tentang angka; ini membantu kita menyelesaikan masalah dunia nyata seperti berbelanja atau mengukur. Ketika digit atas lebih kecil dari digit bawah, kita harus meminjam dari nilai tempat berikutnya. Meminjam berarti mengambil satu "Puluhan" dan memecahnya menjadi sepuluh "Satuan" untuk membuat angka atas lebih besar. Konsep ini memastikan bahwa kita tidak pernah kehabian satuan saat mengurangi dalam skenario kehidupan nyata. Dengan memahami mengapa kita meminjam, matematika menjadi alat logis daripada sekadar menghafal langkah.</p>
+                <p>This is exactly where we use our <strong>"Space Borrowing"</strong> power! When the top digit is smaller, we borrow from the next place value. Borrowing means taking one "Ten" and breaking it into ten "Ones". By understanding why we borrow, math becomes a logical tool!</p>
+                
+                <div style="text-align:center; margin:15px 0; font-size: 3em; color: var(--primary);"><i class="fas fa-space-shuttle"></i></div>
+            
+                <p style="color:#6c757d; font-style:italic; margin-top:20px;">Bayangkan kamu adalah Komandan Luar Angkasa. Kamu membutuhkan 52 liter bahan bakar, tetapi hanya memiliki 38 liter. Untuk mengetahui berapa banyak bahan bakar tambahan, kamu harus mengurangkan 38 dari 52.</p>
+                <p style="color:#6c757d; font-style:italic;"><strong>Masalah!</strong> Perhatikan kolom satuan: 2 lebih kecil dari 8. Kita tidak bisa mengambil 8 dari 2 secara langsung! Inilah di mana kita menggunakan kekuatan <strong>"Meminjam Antariksa"</strong>! Ketika digit atas lebih kecil, kita meminjam dari nilai tempat berikutnya. Meminjam berarti mengambil satu "Puluhan" dan memecahnya menjadi sepuluh "Satuan".</p>
             </div>
             <div class="activity-side">
                 <h3><i class="fas fa-pencil-alt"></i> Activities</h3>
@@ -251,13 +286,21 @@
         </div>
         <div class="section-body">
             <div class="theory-side bilingual">
-                <p>Let us remember our place value rules to understand borrowing better. One "Ten" is exactly the same as ten "Ones" in the base-ten system. If we have a Ten rod and we "break" it, it turns into 10 little unit cubes. This exchange is the exact mechanism we use when we regroup or borrow in subtraction. Without this fundamental knowledge, borrowing would just seem like magic!</p>
-                <p>Think about the number 40, which is made of 4 tens and 0 ones. If we need to subtract some ones, we have a problem because there are zero ones. We must take one of the tens, leaving 3 tens, and break it into 10 ones. Now we have 3 tens and 10 ones, which still equals 40, but allows us to subtract. This flexibility in representing numbers is the key to all advanced subtraction.</p>
+                <div class="mission-title"><i class="fas fa-cubes"></i> Power-Up: Base-Ten Exchange</div>
                 
-                <div style="text-align:center; margin-top:15px; font-size: 3em; color: var(--accent);"><i class="fas fa-cubes"></i></div>
+                <p>Let's remember our place value rules. One "Ten" is exactly the same as ten "Ones". If we have a Ten rod and we "break" it, it turns into 10 little unit cubes. This exchange is the exact mechanism we use when we borrow!</p>
             
-                <p style="color:#6c757d; font-style:italic; margin-top:20px;">Mari kita ingat aturan nilai tempat kita untuk memahami peminjaman dengan lebih baik. Satu "Puluhan" sama persis dengan sepuluh "Satuan" dalam sistem basis-sepuluh. Jika kita memiliki batang Puluhan dan kita "memecahkannya", itu berubah menjadi 10 kubus unit kecil. Pertukaran ini adalah mekanisme tepat yang kita gunakan saat kita mengelompokkan ulang atau meminjam dalam pengurangan. Tanpa pengetahuan mendasar ini, meminjam hanya akan terlihat seperti sulap!</p>
-                <p style="color:#6c757d; font-style:italic;">Pikirkan angka 40, yang terdiri dari 4 puluhan dan 0 satuan. Jika kita perlu mengurangi beberapa satuan, kita memiliki masalah karena ada nol satuan. Kita harus mengambil satu puluhan, menyisakan 3 puluhan, dan memecahnya menjadi 10 satuan. Sekarang kita memiliki 3 puluhan dan 10 satuan, yang masih sama dengan 40, tetapi memungkinkan kita untuk mengurangi. Fleksibilitas dalam merepresentasikan angka ini adalah kunci untuk semua pengurangan tingkat lanjut.</p>
+                <div class="visual-math">
+                    1 Rod (Ten) = 10 Cubes (Ones)
+                </div>
+            
+                <div class="alert-box">
+                    <i class="fas fa-lightbulb" style="color:#ffc107;"></i>
+                    <div>Think about 40 (4 tens, 0 ones). If we need ones, we break 1 ten. We have <strong>3 tens</strong> left, and we get <strong>10 ones</strong>. It still equals 40, but now we can subtract!</div>
+                </div>
+            
+                <p style="color:#6c757d; font-style:italic; margin-top:20px;">Mari kita ingat aturan nilai tempat. Satu "Puluhan" sama persis dengan sepuluh "Satuan". Jika kita memiliki batang Puluhan dan kita "memecahkannya", itu berubah menjadi 10 kubus unit kecil. Pertukaran ini adalah mekanisme yang kita gunakan saat meminjam!</p>
+                <p style="color:#6c757d; font-style:italic;">Pikirkan angka 40 (4 puluhan, 0 satuan). Jika kita perlu satuan, kita pecahkan 1 puluhan. Kita menyisakan <strong>3 puluhan</strong>, dan mendapatkan <strong>10 satuan</strong>. Tetap sama dengan 40, tetapi sekarang kita bisa mengurangi!</p>
             </div>
             <div class="activity-side">
                 <h3><i class="fas fa-pencil-alt"></i> Activities (Dropdowns)</h3>
@@ -325,18 +368,35 @@
         </div>
         <div class="section-body">
             <div class="theory-side bilingual">
-                <p>Now, let us look at a 3-digit problem: \( 324 - 156 \). We always start subtracting from the ones column on the right side. We try to do 4 minus 6, but 4 is smaller than 6, so we must borrow from the tens. We borrow 1 ten, so the 4 becomes 14, and \( 14 - 6 = 8 \). Now we move to the tens column and realize a chain reaction has started!</p>
-                <p>Because we borrowed from the tens, the 2 in the tens place became a 1. Now we must subtract 5 from 1, which is impossible without borrowing again. We must borrow from the hundreds place, turning the 1 into an 11. \( 11 - 5 = 6 \), and the hundreds column decreases from 3 to 2. Finally, \( 2 - 1 = 1 \), giving us the final answer of 168.</p>
+                <div class="mission-title"><i class="fas fa-project-diagram"></i> Chain Reaction Protocol</div>
                 
-                <table class="illust-table" style="margin-top:15px;">
-                    <tr><th>Step / Langkah</th><th>Action / Tindakan</th></tr>
-                    <tr><td>1</td><td>Check Ones: 4 < 6 (Borrow!)</td></tr>
-                    <tr><td>2</td><td>Check Tens: 1 < 5 (Borrow!)</td></tr>
-                    <tr><td>3</td><td>Check Hundreds: 2 > 1 (Safe!)</td></tr>
-                </table>
+                <p>Let's look at a 3-digit problem: \( 324 - 156 \). We start at the ones. 4 minus 6? We can't! We borrow from the tens. The 4 becomes a 14. Now we move to the tens... Oh no, a chain reaction!</p>
             
-                <p style="color:#6c757d; font-style:italic; margin-top:20px;">Sekarang, mari kita lihat soal 3 digit: \( 324 - 156 \). Kita selalu mulai mengurangi dari kolom satuan di sisi kanan. Kita mencoba melakukan 4 kurang 6, tapi 4 lebih kecil dari 6, jadi kita harus meminjam dari puluhan. Kita meminjam 1 puluhan, jadi 4 menjadi 14, dan \( 14 - 6 = 8 \). Sekarang kita berpindah ke kolom puluhan dan menyadari reaksi berantai telah dimulai!</p>
-                <p style="color:#6c757d; font-style:italic;">Karena kita meminjam dari puluhan, angka 2 di tempat puluhan menjadi 1. Sekarang kita harus mengurangi 5 dari 1, yang mustahil tanpa meminjam lagi. Kita harus meminjam dari tempat ratusan, mengubah 1 menjadi 11. \( 11 - 5 = 6 \), dan kolom ratusan berkurang dari 3 menjadi 2. Akhirnya, \( 2 - 1 = 1 \), memberi kita jawaban akhir 168.</p>
+                <div class="step-cards">
+                    <div class="step-card" style="border-top: 4px solid var(--error);">
+                        <strong>Step 1: Ones</strong>
+                        4 < 6<br>Borrow!
+                    </div>
+                    <div class="step-card" style="border-top: 4px solid #ffc107;">
+                        <strong>Step 2: Tens</strong>
+                        1 < 5<br>Borrow!
+                    </div>
+                    <div class="step-card" style="border-top: 4px solid var(--success);">
+                        <strong>Step 3: Hunds</strong>
+                        2 > 1<br>Safe!
+                    </div>
+                </div>
+            
+                <div class="visual-math">
+                    &nbsp;&nbsp;2&nbsp;&nbsp;11&nbsp;&nbsp;14<br>
+                    <span>3</span><span>2</span><span>4</span><br>
+                    -1 &nbsp;5 &nbsp;6<br>
+                    _________<br>
+                    &nbsp;&nbsp;1 &nbsp;&nbsp;6 &nbsp;&nbsp;8
+                </div>
+            
+                <p style="color:#6c757d; font-style:italic; margin-top:20px;">Mari kita lihat soal 3 digit: \( 324 - 156 \). Kita mulai dari satuan. 4 kurang 6? Kita tidak bisa! Kita meminjam dari puluhan. 4 menjadi 14. Sekarang kita pindah ke puluhan... Oh tidak, reaksi berantai!</p>
+                <p style="color:#6c757d; font-style:italic;">Karena kita meminjam dari puluhan, angka 2 di tempat puluhan menjadi 1. Sekarang kita harus mengurangi 5 dari 1. Kita harus meminjam dari ratusan, mengubah 1 menjadi 11. \( 11 - 5 = 6 \), dan ratusan berkurang dari 3 menjadi 2. Jawaban akhirnya 168.</p>
             </div>
             <div class="activity-side">
                 <h3><i class="fas fa-pencil-alt"></i> Activities (Matching)</h3>
@@ -416,13 +476,25 @@
         </div>
         <div class="section-body">
             <div class="theory-side bilingual">
-                <p>Your turn to lead, Commander! Let us set up our vertical subtraction properly. Always remember the golden rule: Top number minus Bottom number. When setting up \( 82 - 45 \), make sure the ones and tens line up perfectly. Since 2 is less than 5, we borrow from the 8, making it 7, and the 2 becomes 12. Practicing this setup repeatedly will build your math fluency.</p>
-                <p>Subtracting from zeros can feel tricky, but the borrowing rule remains the same. Look at \( 400 - 123 \). We cannot subtract 3 from 0 in the ones column. We try to borrow from the tens, but it is also 0, so we must go to the hundreds. We borrow 1 hundred, giving the tens 10, then borrow 1 ten, giving the ones 10. With practice, even zero won't stop your subtraction mission!</p>
+                <div class="mission-title"><i class="fas fa-terminal"></i> Commander's Console</div>
                 
-                <div style="text-align:center; margin-top:15px; font-size: 3em; color: var(--secondary);"><i class="fas fa-chalkboard-teacher"></i></div>
+                <p>Your turn to lead! Let's set up our vertical subtraction properly. Always remember the golden rule: <strong>Top number minus Bottom number</strong>. Make sure the ones and tens line up perfectly.</p>
             
-                <p style="color:#6c757d; font-style:italic; margin-top:20px;">Saatnya kamu memimpin, Komandan! Mari kita menyiapkan pengurangan vertikal kita dengan benar. Selalu ingat aturan emas: Angka atas dikurangi Angka bawah. Saat menyiapkan \( 82 - 45 \), pastikan satuan dan puluhan sejajar dengan sempurna. Karena 2 kurang dari 5, kita meminjam dari 8, menjadikannya 7, dan 2 menjadi 12. Melatih pengaturan ini secara berulang akan membangun kelancaran matematikamu.</p>
-                <p style="color:#6c757d; font-style:italic;">Mengurangi dari nol bisa terasa rumit, tetapi aturan meminjam tetap sama. Lihat \( 400 - 123 \). Kita tidak bisa mengurangi 3 dari 0 di kolom satuan. Kita mencoba meminjam dari puluhan, tetapi itu juga 0, jadi kita harus pergi ke ratusan. Kita meminjam 1 ratusan, memberi puluhan 10, lalu meminjam 1 puluhan, memberi satuan 10. Dengan latihan, bahkan nol tidak akan menghentikan misi penguranganmu!</p>
+                <div class="visual-math" style="border-color: #4cc9f0;">
+                    &nbsp;&nbsp;7&nbsp;&nbsp;12<br>
+                    <span>8</span><span>2</span><br>
+                    -4 &nbsp;5<br>
+                    _________<br>
+                    &nbsp;&nbsp;3 &nbsp;&nbsp;7
+                </div>
+            
+                <div class="alert-box danger">
+                    <i class="fas fa-bomb" style="color:var(--error);"></i>
+                    <div><strong>Warning: Zero Zone!</strong> Look at \( 400 - 123 \). We cannot subtract from 0. We must jump to the hundreds, borrow 1 hundred (making it 10 tens), then borrow 1 ten (making it 10 ones)!</div>
+                </div>
+            
+                <p style="color:#6c757d; font-style:italic; margin-top:20px;">Saatnya kamu memimpin! Mari siapkan pengurangan vertikal dengan benar. Selalu ingat aturan emas: <strong>Angka atas dikurangi Angka bawah</strong>. Pastikan satuan dan puluhan sejajar dengan sempurna.</p>
+                <p style="color:#6c757d; font-style:italic;"><strong>Peringatan: Zona Nol!</strong> Lihat \( 400 - 123 \). Kita tidak bisa mengurangi dari 0. Kita harus melompat ke ratusan, meminjam 1 ratusan (menjadikannya 10 puluhan), lalu meminjam 1 puluhan (menjadikannya 10 satuan)!</p>
             </div>
             <div class="activity-side">
                 <h3><i class="fas fa-pencil-alt"></i> Activities (Checkboxes - Choose all correct)</h3>
@@ -530,13 +602,33 @@
         </div>
         <div class="section-body">
             <div class="theory-side bilingual">
-                <p>You are doing amazing! Now it is time to solve some word problems on your own. Word problems require you to translate English sentences into math equations. Look for keywords like "lost", "gave away", or "remain" to know you must subtract. Some problems might have extra steps, meaning you have to subtract more than once. Read carefully, set up your numbers vertically, and solve step by step.</p>
-                <p>Multi-step problems are just two subtraction problems combined into one story. For example, if you have 215 stars and give 18 to a comet and 24 to a planet. First, subtract the 18 stars from 215 to find the intermediate amount. Then, subtract the 24 stars from that new intermediate amount. Breaking it into smaller logical steps makes even the hardest problems easy to conquer!</p>
+                <div class="mission-title"><i class="fas fa-scroll"></i> Decoding Word Problems</div>
                 
-                <div style="text-align:center; margin-top:15px; font-size: 3em; color: var(--accent);"><i class="fas fa-user-astronaut"></i></div>
+                <p>Word problems require you to translate English into math equations. Read carefully, set up your numbers vertically, and solve step by step. Look for keywords to know you must subtract:</p>
             
-                <p style="color:#6c757d; font-style:italic; margin-top:20px;">Kamu luar biasa! Sekarang saatnya menyelesaikan beberapa soal cerita sendirian. Soal cerita mengharuskan kamu menerjemahkan kalimat bahasa Inggris menjadi persamaan matematika. Carilah kata kunci seperti "hilang", "memberikan", atau "sisa" untuk mengetahui bahwa kamu harus mengurangi. Beberapa soal mungkin memiliki langkah ekstra, artinya kamu harus mengurangi lebih dari sekali. Baca dengan cermat, atur angkamu secara vertikal, dan selesaikan langkah demi langkah.</p>
-                <p style="color:#6c757d; font-style:italic;">Soal multi-langkah hanyalah dua soal pengurangan yang digabungkan menjadi satu cerita. Misalnya, jika kamu memiliki 215 bintang dan memberikan 18 ke komet dan 24 ke planet. Pertama, kurangi 18 bintang dari 215 untuk menemukan jumlah sementara. Kemudian, kurangi 24 bintang dari jumlah sementara baru tersebut. Memecahnya menjadi langkah logis yang lebih kecil membuat soal tersulit pun mudah ditaklukkan!</p>
+                <div class="keyword-box">
+                    <strong>Keywords / Kata Kunci:</strong><br>
+                    "Lost / Hilang" • "Gave away / Memberikan" • "Remain / Sisa" • "Difference / Selisih" • "How many more / Berapa lagi"
+                </div>
+            
+                <p>Some problems have extra steps (multi-step). For example: You have 215 stars, give 18 to a comet, and 24 to a planet. Break it into smaller logical steps!</p>
+            
+                <div class="step-cards">
+                    <div class="step-card">
+                        <strong>Step 1</strong>
+                        215 - 18 = ?
+                    </div>
+                    <div class="step-card">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="step-card">
+                        <strong>Step 2</strong>
+                        Result - 24 = ?
+                    </div>
+                </div>
+            
+                <p style="color:#6c757d; font-style:italic; margin-top:20px;">Soal cerita mengharuskan kamu menerjemahkan kalimat bahasa Inggris menjadi persamaan matematika. Baca dengan cermat, atur angkamu secara vertikal, dan selesaikan langkah demi langkah. Carilah kata kunci untuk mengetahui bahwa kamu harus mengurangi.</p>
+                <p style="color:#6c757d; font-style:italic;">Beberapa soal memiliki langkah ekstra (multi-langkah). Misalnya: Kamu memiliki 215 bintang, memberikan 18 ke komet, dan 24 ke planet. Pecahkan menjadi langkah-langkah logis yang lebih kecil seperti di atas!</p>
             </div>
             <div class="activity-side">
                 <h3><i class="fas fa-pencil-alt"></i> Activities (Word Problems)</h3>
